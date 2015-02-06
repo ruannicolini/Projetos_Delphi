@@ -1,0 +1,9 @@
+unit uPais;
+
+interface
+type Pais - class
+and; 
+
+implementation
+
+end.

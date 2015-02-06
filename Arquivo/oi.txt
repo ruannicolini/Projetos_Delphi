@@ -1,0 +1,5 @@
+Fala Meu Povo!!!!
+
+Apenas um teste da abertura de arquivos ...
+
+... Em Delphi.
