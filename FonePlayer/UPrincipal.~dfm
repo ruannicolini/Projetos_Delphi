@@ -15,9 +15,9 @@ object Form1: TForm1
   TextHeight = 13
   object PageControl1: TPageControl
     Left = 0
-    Top = 48
+    Top = 40
     Width = 1072
-    Height = 505
+    Height = 521
     ActivePage = TabSheet1
     TabOrder = 0
     object TabSheet1: TTabSheet
@@ -27,7 +27,7 @@ object Form1: TForm1
         Top = 0
         Width = 1077
         Height = 493
-        Color = 2894892
+        Color = 33023
         ParentBackground = False
         TabOrder = 0
         object Panel3: TPanel
@@ -63,14 +63,14 @@ object Form1: TForm1
     Left = -1
     Top = -1
     Width = 1068
-    Height = 47
+    Height = 40
     Color = 33023
     ParentBackground = False
     TabOrder = 1
     object Panel1: TPanel
-      Left = 8
-      Top = 8
-      Width = 1052
+      Left = 4
+      Top = 4
+      Width = 1061
       Height = 33
       Align = alCustom
       Caption = 'Fone Player'
