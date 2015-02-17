@@ -15,6 +15,7 @@ type
     TabSheet2: TTabSheet;
     TabSheet3: TTabSheet;
     XPManifest1: TXPManifest;
+    Panel2: TPanel;
   private
     { Private declarations }
   public

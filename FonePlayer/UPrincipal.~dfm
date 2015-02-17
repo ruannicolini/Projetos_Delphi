@@ -5271,12 +5271,19 @@ object Form1: TForm1
   object PageControl1: TPageControl
     Left = 0
     Top = 32
-    Width = 1070
+    Width = 1072
     Height = 521
-    ActivePage = TabSheet3
+    ActivePage = TabSheet1
     TabOrder = 1
     object TabSheet1: TTabSheet
       Caption = 'M'#250'sica'
+      object Panel2: TPanel
+        Left = -16
+        Top = 0
+        Width = 225
+        Height = 494
+        TabOrder = 0
+      end
     end
     object TabSheet2: TTabSheet
       Caption = 'V'#237'deo'
@@ -5286,5 +5293,8 @@ object Form1: TForm1
       Caption = 'Configura'#231#245'es'
       ImageIndex = 2
     end
+  end
+  object XPManifest1: TXPManifest
+    Left = 888
   end
 end

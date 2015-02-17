@@ -5277,6 +5277,15 @@ object Form1: TForm1
     TabOrder = 1
     object TabSheet1: TTabSheet
       Caption = 'M'#250'sica'
+      object Panel2: TPanel
+        Left = -16
+        Top = 0
+        Width = 1078
+        Height = 494
+        Color = clYellow
+        ParentBackground = False
+        TabOrder = 0
+      end
     end
     object TabSheet2: TTabSheet
       Caption = 'V'#237'deo'
