@@ -13,41 +13,41 @@ type
     editNum: TEdit;
     editBairro: TEdit;
     editCod: TEdit;
-    Label6: TLabel;
+    lbCod: TLabel;
     XPManifest1: TXPManifest;
-    Label1: TLabel;
-    Label5: TLabel;
-    Label7: TLabel;
-    Label2: TLabel;
+    lbNome: TLabel;
+    lbEnd: TLabel;
+    lbNum: TLabel;
+    lbBairro: TLabel;
     editComp: TEdit;
-    Label3: TLabel;
+    lbComp: TLabel;
     editCid: TEdit;
-    Label4: TLabel;
-    Label8: TLabel;
+    lbCid: TLabel;
+    lbUf: TLabel;
     cmbUf: TComboBox;
-    Label9: TLabel;
+    lbCep: TLabel;
     editCep: TEdit;
-    Label10: TLabel;
+    lbFone1: TLabel;
     editFone1: TEdit;
-    Label11: TLabel;
+    lbFone2: TLabel;
     editFone2: TEdit;
     editEmail: TEdit;
-    Label12: TLabel;
+    lbEmail: TLabel;
     ckbAtivo: TCheckBox;
-    RadioGroup1: TRadioGroup;
+    rGroupTipo: TRadioGroup;
     rbPFisica: TRadioButton;
     rbPJuridica: TRadioButton;
     editCpf: TEdit;
-    Label14: TLabel;
-    Label15: TLabel;
+    lbCpf: TLabel;
+    lbcnpj: TLabel;
     editCnpj: TEdit;
-    Label16: TLabel;
+    lbIE: TLabel;
     editIE: TEdit;
     btnConcluir: TButton;
     memoObs: TMemo;
-    Label13: TLabel;
+    lbObs: TLabel;
     PInformacoes: TPanel;
-    Label17: TLabel;
+    lbInf: TLabel;
     memoInf: TMemo;
     btnConfirmar: TButton;
     btnAlterar: TButton;
@@ -75,6 +75,21 @@ implementation
 procedure TForm1.btnConcluirClick(Sender: TObject);
 begin
   PInformacoes.Visible := true;
+  memoInf.Lines.Text := lbCod.Caption + ': ' + editCod.Text + ' ' +
+                        lbNome.Caption + ': ' + editName.Text + ' ' +
+                        
+                        lbEnd.Caption + ': ' + editEnd.Text + ' ' +
+                        lbNum.Caption + ': ' + editNum.Text + ' ' +
+                        lbComp.Caption + ': ' + editComp.Text + ' ' +
+                        lbUf.Caption + ': ' + cmbUf.Text + ' ' +
+                        lbCid.Caption + ': ' + editCid.Text + ' ' +
+                        lbBairro.Caption + ': ' + editBairro.Text + ' ' +
+                        lbCep.Caption + ': ' + editCep.Text + ' ' +
+                        lbFone1.Caption + ': ' + editFone1.Text + ' ' +
+                        lbFone2.Caption + ': ' + editFone2.Text + ' ' +
+                        lbEmail.Caption + ': ' + editEmail.Text + ' ' +
+                        lbObs.Caption + ': ' + memoObs.Text + ' ' ;
+
 end;
 
 procedure TForm1.btnAlterarClick(Sender: TObject);

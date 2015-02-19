@@ -15,7 +15,7 @@ object Form1: TForm1
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
-  object Label6: TLabel
+  object lbCod: TLabel
     Left = 16
     Top = 48
     Width = 23
@@ -28,7 +28,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label1: TLabel
+  object lbNome: TLabel
     Left = 92
     Top = 49
     Width = 33
@@ -41,7 +41,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label5: TLabel
+  object lbEnd: TLabel
     Left = 16
     Top = 166
     Width = 55
@@ -54,7 +54,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label7: TLabel
+  object lbNum: TLabel
     Left = 235
     Top = 167
     Width = 15
@@ -67,7 +67,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label2: TLabel
+  object lbBairro: TLabel
     Left = 236
     Top = 206
     Width = 34
@@ -80,7 +80,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label3: TLabel
+  object lbComp: TLabel
     Left = 292
     Top = 166
     Width = 76
@@ -93,7 +93,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label4: TLabel
+  object lbCid: TLabel
     Left = 75
     Top = 206
     Width = 40
@@ -106,7 +106,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label8: TLabel
+  object lbUf: TLabel
     Left = 16
     Top = 206
     Width = 14
@@ -119,7 +119,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label9: TLabel
+  object lbCep: TLabel
     Left = 16
     Top = 247
     Width = 23
@@ -132,7 +132,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label10: TLabel
+  object lbFone1: TLabel
     Left = 138
     Top = 247
     Width = 36
@@ -145,7 +145,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label11: TLabel
+  object lbFone2: TLabel
     Left = 282
     Top = 247
     Width = 36
@@ -158,7 +158,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label12: TLabel
+  object lbEmail: TLabel
     Left = 16
     Top = 287
     Width = 31
@@ -171,7 +171,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label14: TLabel
+  object lbCpf: TLabel
     Left = 234
     Top = 88
     Width = 20
@@ -184,7 +184,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label15: TLabel
+  object lbcnpj: TLabel
     Left = 16
     Top = 127
     Width = 26
@@ -197,7 +197,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label16: TLabel
+  object lbIE: TLabel
     Left = 233
     Top = 128
     Width = 82
@@ -210,7 +210,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label13: TLabel
+  object lbObs: TLabel
     Left = 16
     Top = 329
     Width = 75
@@ -279,7 +279,7 @@ object Form1: TForm1
   object editCod: TEdit
     Left = 16
     Top = 64
-    Width = 63
+    Width = 64
     Height = 21
     TabOrder = 5
     OnEnter = editCodEnter
@@ -310,6 +310,12 @@ object Form1: TForm1
     Height = 21
     ItemHeight = 13
     TabOrder = 8
+    Items.Strings = (
+      'MG'
+      'ES'
+      'SP'
+      'RJ'
+      'RO')
   end
   object editCep: TEdit
     Left = 16
@@ -355,7 +361,7 @@ object Form1: TForm1
     Caption = 'Ativo'
     TabOrder = 13
   end
-  object RadioGroup1: TRadioGroup
+  object rGroupTipo: TRadioGroup
     Left = 16
     Top = 90
     Width = 208
@@ -434,7 +440,7 @@ object Form1: TForm1
     Color = clInactiveBorder
     TabOrder = 22
     Visible = False
-    object Label17: TLabel
+    object lbInf: TLabel
       Left = 29
       Top = 7
       Width = 70
