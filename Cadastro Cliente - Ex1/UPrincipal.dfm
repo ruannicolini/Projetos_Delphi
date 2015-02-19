@@ -117,6 +117,71 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
   end
+  object Label9: TLabel
+    Left = 16
+    Top = 170
+    Width = 23
+    Height = 13
+    Caption = 'Cep'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label10: TLabel
+    Left = 138
+    Top = 170
+    Width = 36
+    Height = 13
+    Caption = 'Fone1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label11: TLabel
+    Left = 282
+    Top = 170
+    Width = 36
+    Height = 13
+    Caption = 'Fone2'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label12: TLabel
+    Left = 16
+    Top = 210
+    Width = 31
+    Height = 13
+    Caption = 'Email'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label13: TLabel
+    Left = 17
+    Top = 251
+    Width = 37
+    Height = 13
+    Caption = 'Status'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
   object Edit1: TEdit
     Left = 91
     Top = 64
@@ -190,6 +255,42 @@ object Form1: TForm1
     Height = 21
     ItemHeight = 13
     TabOrder = 8
+  end
+  object Edit8: TEdit
+    Left = 16
+    Top = 186
+    Width = 112
+    Height = 21
+    TabOrder = 9
+  end
+  object Edit9: TEdit
+    Left = 137
+    Top = 186
+    Width = 135
+    Height = 21
+    TabOrder = 10
+  end
+  object Edit10: TEdit
+    Left = 281
+    Top = 186
+    Width = 135
+    Height = 21
+    TabOrder = 11
+  end
+  object Edit11: TEdit
+    Left = 16
+    Top = 226
+    Width = 208
+    Height = 21
+    TabOrder = 12
+  end
+  object CheckBox1: TCheckBox
+    Left = 18
+    Top = 266
+    Width = 97
+    Height = 20
+    Caption = 'Ativo'
+    TabOrder = 13
   end
   object XPManifest1: TXPManifest
     Left = 480

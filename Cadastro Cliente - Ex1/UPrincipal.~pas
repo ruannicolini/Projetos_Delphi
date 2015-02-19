@@ -22,6 +22,18 @@ type
     Label2: TLabel;
     Edit6: TEdit;
     Label3: TLabel;
+    Edit7: TEdit;
+    Label4: TLabel;
+    Label8: TLabel;
+    ComboBox1: TComboBox;
+    Label9: TLabel;
+    Edit8: TEdit;
+    Label10: TLabel;
+    Edit9: TEdit;
+    Label11: TLabel;
+    Edit10: TEdit;
+    Edit11: TEdit;
+    Label12: TLabel;
   private
     { Private declarations }
   public
