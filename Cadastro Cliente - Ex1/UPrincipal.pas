@@ -8,11 +8,10 @@ uses
 
 type
   TForm1 = class(TForm)
-    Edit1: TEdit;
-    Edit2: TEdit;
-    Edit3: TEdit;
-    Edit4: TEdit;
-    Panel1: TPanel;
+    editName: TEdit;
+    editEnd: TEdit;
+    editNum: TEdit;
+    editBairro: TEdit;
     editCod: TEdit;
     Label6: TLabel;
     XPManifest1: TXPManifest;
@@ -20,39 +19,40 @@ type
     Label5: TLabel;
     Label7: TLabel;
     Label2: TLabel;
-    Edit6: TEdit;
+    editComp: TEdit;
     Label3: TLabel;
-    Edit7: TEdit;
+    editCid: TEdit;
     Label4: TLabel;
     Label8: TLabel;
-    ComboBox1: TComboBox;
+    cmbUf: TComboBox;
     Label9: TLabel;
-    Edit8: TEdit;
+    editCep: TEdit;
     Label10: TLabel;
-    Edit9: TEdit;
+    editFone1: TEdit;
     Label11: TLabel;
-    Edit10: TEdit;
-    Edit11: TEdit;
+    editFone2: TEdit;
+    editEmail: TEdit;
     Label12: TLabel;
-    CheckBox1: TCheckBox;
+    ckbAtivo: TCheckBox;
     RadioGroup1: TRadioGroup;
-    RadioButton1: TRadioButton;
-    RadioButton2: TRadioButton;
-    Edit12: TEdit;
+    rbPFisica: TRadioButton;
+    rbPJuridica: TRadioButton;
+    editCpf: TEdit;
     Label14: TLabel;
     Label15: TLabel;
-    Edit13: TEdit;
+    editCnpj: TEdit;
     Label16: TLabel;
-    Edit14: TEdit;
-    Button1: TButton;
-    Memo1: TMemo;
+    editIE: TEdit;
+    btnConcluir: TButton;
+    memoObs: TMemo;
     Label13: TLabel;
     PInformacoes: TPanel;
     Label17: TLabel;
-    Memo2: TMemo;
-    Button2: TButton;
+    memoInf: TMemo;
+    btnConfirmar: TButton;
     btnAlterar: TButton;
-    procedure Button1Click(Sender: TObject);
+    PCadCliente: TPanel;
+    procedure btnConcluirClick(Sender: TObject);
     procedure btnAlterarClick(Sender: TObject);
     procedure editCodEnter(Sender: TObject);
     procedure editCodExit(Sender: TObject);
@@ -69,7 +69,7 @@ implementation
 
 {$R *.dfm}
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TForm1.btnConcluirClick(Sender: TObject);
 begin
   PInformacoes.Visible := true;
 end;

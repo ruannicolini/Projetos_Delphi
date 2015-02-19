@@ -222,7 +222,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Edit1: TEdit
+  object editName: TEdit
     Left = 91
     Top = 64
     Width = 325
@@ -231,7 +231,7 @@ object Form1: TForm1
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
-  object Edit2: TEdit
+  object editEnd: TEdit
     Left = 16
     Top = 182
     Width = 208
@@ -240,7 +240,7 @@ object Form1: TForm1
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
-  object Edit3: TEdit
+  object editNum: TEdit
     Left = 235
     Top = 182
     Width = 45
@@ -249,7 +249,7 @@ object Form1: TForm1
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
-  object Edit4: TEdit
+  object editBairro: TEdit
     Left = 236
     Top = 222
     Width = 180
@@ -258,7 +258,7 @@ object Form1: TForm1
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
-  object Panel1: TPanel
+  object PCadCliente: TPanel
     Left = 0
     Top = 0
     Width = 921
@@ -284,7 +284,7 @@ object Form1: TForm1
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
-  object Edit6: TEdit
+  object editComp: TEdit
     Left = 292
     Top = 182
     Width = 124
@@ -293,7 +293,7 @@ object Form1: TForm1
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
-  object Edit7: TEdit
+  object editCid: TEdit
     Left = 75
     Top = 222
     Width = 149
@@ -302,7 +302,7 @@ object Form1: TForm1
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
-  object ComboBox1: TComboBox
+  object cmbUf: TComboBox
     Left = 16
     Top = 222
     Width = 47
@@ -310,7 +310,7 @@ object Form1: TForm1
     ItemHeight = 13
     TabOrder = 8
   end
-  object Edit8: TEdit
+  object editCep: TEdit
     Left = 16
     Top = 263
     Width = 112
@@ -319,7 +319,7 @@ object Form1: TForm1
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
-  object Edit9: TEdit
+  object editFone1: TEdit
     Left = 137
     Top = 263
     Width = 135
@@ -328,7 +328,7 @@ object Form1: TForm1
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
-  object Edit10: TEdit
+  object editFone2: TEdit
     Left = 281
     Top = 263
     Width = 135
@@ -337,7 +337,7 @@ object Form1: TForm1
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
-  object Edit11: TEdit
+  object editEmail: TEdit
     Left = 16
     Top = 303
     Width = 208
@@ -346,7 +346,7 @@ object Form1: TForm1
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
-  object CheckBox1: TCheckBox
+  object ckbAtivo: TCheckBox
     Left = 234
     Top = 303
     Width = 47
@@ -362,7 +362,7 @@ object Form1: TForm1
     Caption = 'Tipo'
     TabOrder = 14
   end
-  object RadioButton1: TRadioButton
+  object rbPFisica: TRadioButton
     Left = 26
     Top = 102
     Width = 103
@@ -370,7 +370,7 @@ object Form1: TForm1
     Caption = 'Pessoa F'#237'sica'
     TabOrder = 15
   end
-  object RadioButton2: TRadioButton
+  object rbPJuridica: TRadioButton
     Left = 116
     Top = 102
     Width = 95
@@ -378,7 +378,7 @@ object Form1: TForm1
     Caption = 'Pessoa Jur'#237'dica'
     TabOrder = 16
   end
-  object Edit12: TEdit
+  object editCpf: TEdit
     Left = 234
     Top = 102
     Width = 182
@@ -387,7 +387,7 @@ object Form1: TForm1
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
-  object Edit13: TEdit
+  object editCnpj: TEdit
     Left = 15
     Top = 141
     Width = 209
@@ -396,7 +396,7 @@ object Form1: TForm1
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
-  object Edit14: TEdit
+  object editIE: TEdit
     Left = 234
     Top = 142
     Width = 182
@@ -405,16 +405,16 @@ object Form1: TForm1
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
-  object Button1: TButton
+  object btnConcluir: TButton
     Left = 340
     Top = 502
     Width = 75
     Height = 25
     Caption = 'Concluir'
     TabOrder = 20
-    OnClick = Button1Click
+    OnClick = btnConcluirClick
   end
-  object Memo1: TMemo
+  object memoObs: TMemo
     Left = 16
     Top = 344
     Width = 400
@@ -444,14 +444,14 @@ object Form1: TForm1
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object Memo2: TMemo
+    object memoInf: TMemo
       Left = 30
       Top = 24
       Width = 419
       Height = 433
       TabOrder = 0
     end
-    object Button2: TButton
+    object btnConfirmar: TButton
       Left = 374
       Top = 462
       Width = 75
