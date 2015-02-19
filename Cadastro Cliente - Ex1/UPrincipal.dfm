@@ -12,6 +12,7 @@ object Form1: TForm1
   Font.Style = []
   OldCreateOrder = False
   Visible = True
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Label6: TLabel
@@ -369,6 +370,7 @@ object Form1: TForm1
     Height = 17
     Caption = 'Pessoa F'#237'sica'
     TabOrder = 15
+    OnEnter = rbPFisicaEnter
   end
   object rbPJuridica: TRadioButton
     Left = 116
@@ -377,6 +379,7 @@ object Form1: TForm1
     Height = 17
     Caption = 'Pessoa Jur'#237'dica'
     TabOrder = 16
+    OnEnter = rbPJuridicaEnter
   end
   object editCpf: TEdit
     Left = 234

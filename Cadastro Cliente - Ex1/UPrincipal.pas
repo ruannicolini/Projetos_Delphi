@@ -56,6 +56,9 @@ type
     procedure btnAlterarClick(Sender: TObject);
     procedure editCodEnter(Sender: TObject);
     procedure editCodExit(Sender: TObject);
+    procedure rbPFisicaEnter(Sender: TObject);
+    procedure rbPJuridicaEnter(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -92,6 +95,26 @@ begin
   If (Sender is TEdit) then (Sender as TEdit).Color := clWindow
   else
     If (Sender is TMemo) then (Sender as TMemo).Color := clWindow
+end;
+
+procedure TForm1.rbPFisicaEnter(Sender: TObject);
+begin
+  editIE.Enabled := false;
+  editCnpj.Enabled := false;
+  editCpf.Enabled := true; 
+end;
+
+procedure TForm1.rbPJuridicaEnter(Sender: TObject);
+begin
+  editIE.Enabled := true;
+  editCnpj.Enabled := true;
+  editCpf.Enabled := false;
+end;
+
+procedure TForm1.FormShow(Sender: TObject);
+begin
+  rbPFisica.Checked := true;
+  rbPFisicaEnter(rbPFisica);
 end;
 
 end.

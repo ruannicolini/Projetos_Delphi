@@ -8,10 +8,10 @@ uses
 
 type
   TForm1 = class(TForm)
-    EditName: TEdit;
-    EditEnd: TEdit;
-    EditNum: TEdit;
-    EditBairro: TEdit;
+    editName: TEdit;
+    editEnd: TEdit;
+    editNum: TEdit;
+    editBairro: TEdit;
     editCod: TEdit;
     Label6: TLabel;
     XPManifest1: TXPManifest;
@@ -19,43 +19,46 @@ type
     Label5: TLabel;
     Label7: TLabel;
     Label2: TLabel;
-    EditComp: TEdit;
+    editComp: TEdit;
     Label3: TLabel;
-    EditCid: TEdit;
+    editCid: TEdit;
     Label4: TLabel;
     Label8: TLabel;
     cmbUf: TComboBox;
     Label9: TLabel;
-    EditCep: TEdit;
+    editCep: TEdit;
     Label10: TLabel;
-    EditFone1: TEdit;
+    editFone1: TEdit;
     Label11: TLabel;
-    EditFone2: TEdit;
-    EditEmail: TEdit;
+    editFone2: TEdit;
+    editEmail: TEdit;
     Label12: TLabel;
     ckbAtivo: TCheckBox;
     RadioGroup1: TRadioGroup;
-    RadioButton1: TRadioButton;
-    RadioButton2: TRadioButton;
-    EditCpf: TEdit;
+    rbPFisica: TRadioButton;
+    rbPJuridica: TRadioButton;
+    editCpf: TEdit;
     Label14: TLabel;
     Label15: TLabel;
-    EditCnpj: TEdit;
+    editCnpj: TEdit;
     Label16: TLabel;
-    EditIE: TEdit;
-    Button1: TButton;
-    MemoObs: TMemo;
+    editIE: TEdit;
+    btnConcluir: TButton;
+    memoObs: TMemo;
     Label13: TLabel;
     PInformacoes: TPanel;
     Label17: TLabel;
     memoInf: TMemo;
-    Button2: TButton;
+    btnConfirmar: TButton;
     btnAlterar: TButton;
     PCadCliente: TPanel;
-    procedure Button1Click(Sender: TObject);
+    procedure btnConcluirClick(Sender: TObject);
     procedure btnAlterarClick(Sender: TObject);
     procedure editCodEnter(Sender: TObject);
     procedure editCodExit(Sender: TObject);
+    procedure rbPFisicaEnter(Sender: TObject);
+    procedure rbPJuridicaEnter(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -69,7 +72,7 @@ implementation
 
 {$R *.dfm}
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TForm1.btnConcluirClick(Sender: TObject);
 begin
   PInformacoes.Visible := true;
 end;
@@ -92,6 +95,26 @@ begin
   If (Sender is TEdit) then (Sender as TEdit).Color := clWindow
   else
     If (Sender is TMemo) then (Sender as TMemo).Color := clWindow
+end;
+
+procedure TForm1.rbPFisicaEnter(Sender: TObject);
+begin
+  editIE.Enabled := false;
+  editCnpj.Enabled := false;
+  editCpf.Enabled := true; 
+end;
+
+procedure TForm1.rbPJuridicaEnter(Sender: TObject);
+begin
+  editIE.Enabled := true;
+  editCnpj.Enabled := true;
+  editCpf.Enabled := false;
+end;
+
+procedure TForm1.FormShow(Sender: TObject);
+begin
+  rbPFisica.Checked := true;
+  rbPFisicaEnter(rbPFisica);
 end;
 
 end.
