@@ -1,8 +1,8 @@
 object Form1: TForm1
   Left = 348
   Top = 130
-  Width = 557
-  Height = 575
+  Width = 931
+  Height = 571
   Caption = '001'
   Color = clInactiveBorder
   Font.Charset = DEFAULT_CHARSET
@@ -169,19 +169,6 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label13: TLabel
-    Left = 17
-    Top = 328
-    Width = 37
-    Height = 13
-    Caption = 'Status'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clBlack
-    Font.Height = -11
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentFont = False
-  end
   object Label14: TLabel
     Left = 234
     Top = 88
@@ -214,6 +201,19 @@ object Form1: TForm1
     Width = 82
     Height = 13
     Caption = 'Insc. Estadual'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label13: TLabel
+    Left = 16
+    Top = 329
+    Width = 75
+    Height = 13
+    Caption = 'Observa'#231#245'es'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
     Font.Height = -11
@@ -324,9 +324,9 @@ object Form1: TForm1
     TabOrder = 12
   end
   object CheckBox1: TCheckBox
-    Left = 18
-    Top = 343
-    Width = 97
+    Left = 234
+    Top = 303
+    Width = 47
     Height = 20
     Caption = 'Ativo'
     TabOrder = 13
@@ -376,8 +376,67 @@ object Form1: TForm1
     Height = 21
     TabOrder = 19
   end
+  object Button1: TButton
+    Left = 340
+    Top = 502
+    Width = 75
+    Height = 25
+    Caption = 'Concluir'
+    TabOrder = 20
+  end
+  object Memo1: TMemo
+    Left = 16
+    Top = 344
+    Width = 400
+    Height = 153
+    TabOrder = 21
+  end
+  object Panel2: TPanel
+    Left = 441
+    Top = 41
+    Width = 480
+    Height = 498
+    Color = clInactiveBorder
+    TabOrder = 22
+    object Label17: TLabel
+      Left = 29
+      Top = 7
+      Width = 70
+      Height = 13
+      Caption = 'Informa'#231#245'es'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Memo2: TMemo
+      Left = 30
+      Top = 24
+      Width = 419
+      Height = 433
+      TabOrder = 0
+    end
+    object Button2: TButton
+      Left = 374
+      Top = 462
+      Width = 75
+      Height = 25
+      Caption = 'Confirmar'
+      TabOrder = 1
+    end
+    object Button3: TButton
+      Left = 295
+      Top = 462
+      Width = 75
+      Height = 25
+      Caption = 'Alterar'
+      TabOrder = 2
+    end
+  end
   object XPManifest1: TXPManifest
-    Left = 480
+    Left = 384
     Top = 8
   end
 end

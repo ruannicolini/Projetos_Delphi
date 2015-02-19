@@ -35,7 +35,6 @@ type
     Edit11: TEdit;
     Label12: TLabel;
     CheckBox1: TCheckBox;
-    Label13: TLabel;
     RadioGroup1: TRadioGroup;
     RadioButton1: TRadioButton;
     RadioButton2: TRadioButton;
@@ -45,6 +44,13 @@ type
     Edit13: TEdit;
     Label16: TLabel;
     Edit14: TEdit;
+    Button1: TButton;
+    Memo1: TMemo;
+    Label13: TLabel;
+    Panel2: TPanel;
+    Label17: TLabel;
+    Memo2: TMemo;
+    Button2: TButton;
   private
     { Private declarations }
   public
