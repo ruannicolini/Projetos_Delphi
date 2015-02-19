@@ -20,6 +20,12 @@ type
     Label5: TLabel;
     Label7: TLabel;
     Label2: TLabel;
+    Edit6: TEdit;
+    Label3: TLabel;
+    Edit7: TEdit;
+    Label4: TLabel;
+    Label8: TLabel;
+    ComboBox1: TComboBox;
   private
     { Private declarations }
   public
