@@ -4,22 +4,22 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, ComCtrls, XPMan,
-  StdCtrls;
+  Dialogs, StdCtrls, ExtCtrls, XPMan;
 
 type
   TForm1 = class(TForm)
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Label4: TLabel;
+    Edit4: TEdit;
     Panel1: TPanel;
-    Image1: TImage;
-    PageControl1: TPageControl;
-    TabSheet1: TTabSheet;
-    TabSheet2: TTabSheet;
-    TabSheet3: TTabSheet;
+    Edit5: TEdit;
+    Label6: TLabel;
     XPManifest1: TXPManifest;
-    Panel2: TPanel;
-    Panel3: TPanel;
-    Panel4: TPanel;
-    Panel5: TPanel;
+    Label1: TLabel;
+    Label5: TLabel;
+    Label7: TLabel;
   private
     { Private declarations }
   public

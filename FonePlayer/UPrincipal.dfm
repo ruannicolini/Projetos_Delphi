@@ -1,10 +1,10 @@
 object Form1: TForm1
-  Left = 192
+  Left = 217
   Top = 117
   BorderStyle = bsNone
   ClientHeight = 577
-  ClientWidth = 1067
-  Color = clBtnFace
+  ClientWidth = 1070
+  Color = clSilver
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -15,35 +15,41 @@ object Form1: TForm1
   TextHeight = 13
   object PageControl1: TPageControl
     Left = 0
-    Top = 48
+    Top = 40
     Width = 1072
-    Height = 513
+    Height = 521
     ActivePage = TabSheet1
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -15
+    Font.Name = 'Baskerville Old Face'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'M'#250'sica'
       object Panel2: TPanel
         Left = -16
         Top = 0
-        Width = 1077
+        Width = 1078
         Height = 493
-        Color = 33023
+        Color = clSilver
         ParentBackground = False
         TabOrder = 0
         object Panel3: TPanel
-          Left = 24
-          Top = 8
+          Left = 21
+          Top = 6
           Width = 233
-          Height = 473
+          Height = 478
           Color = clWhite
           ParentBackground = False
           TabOrder = 0
         end
         object Panel4: TPanel
-          Left = 272
-          Top = 8
-          Width = 793
-          Height = 473
+          Left = 257
+          Top = 6
+          Width = 817
+          Height = 478
           Color = clWhite
           ParentBackground = False
           TabOrder = 1
@@ -62,15 +68,15 @@ object Form1: TForm1
   object Panel5: TPanel
     Left = -1
     Top = -1
-    Width = 1068
+    Width = 1072
     Height = 42
     Color = 33023
     ParentBackground = False
     TabOrder = 1
     object Panel1: TPanel
-      Left = 5
+      Left = 6
       Top = 5
-      Width = 1059
+      Width = 1060
       Height = 33
       Align = alCustom
       Caption = 'Fone Player'

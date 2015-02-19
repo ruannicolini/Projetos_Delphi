@@ -1,9 +1,9 @@
 object Form1: TForm1
-  Left = 192
+  Left = 217
   Top = 117
   BorderStyle = bsNone
   ClientHeight = 577
-  ClientWidth = 1067
+  ClientWidth = 1070
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,19 +19,25 @@ object Form1: TForm1
     Width = 1072
     Height = 521
     ActivePage = TabSheet1
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -15
+    Font.Name = 'Baskerville Old Face'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'M'#250'sica'
       object Panel2: TPanel
         Left = -16
         Top = 0
-        Width = 1077
+        Width = 1078
         Height = 493
         Color = 33023
         ParentBackground = False
         TabOrder = 0
         object Panel3: TPanel
-          Left = 24
+          Left = 22
           Top = 8
           Width = 233
           Height = 473
@@ -40,10 +46,10 @@ object Form1: TForm1
           TabOrder = 0
         end
         object Panel4: TPanel
-          Left = 272
+          Left = 261
           Top = 8
-          Width = 793
-          Height = 473
+          Width = 810
+          Height = 472
           Color = clWhite
           ParentBackground = False
           TabOrder = 1
@@ -62,15 +68,15 @@ object Form1: TForm1
   object Panel5: TPanel
     Left = -1
     Top = -1
-    Width = 1068
-    Height = 40
+    Width = 1072
+    Height = 42
     Color = 33023
     ParentBackground = False
     TabOrder = 1
     object Panel1: TPanel
-      Left = 4
-      Top = 4
-      Width = 1061
+      Left = 6
+      Top = 5
+      Width = 1060
       Height = 33
       Align = alCustom
       Caption = 'Fone Player'
