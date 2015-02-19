@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 348
-  Top = 130
+  Left = 188
+  Top = 115
   Width = 931
   Height = 571
   Caption = '001'
@@ -11,6 +11,7 @@ object Form1: TForm1
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
+  Visible = True
   PixelsPerInch = 96
   TextHeight = 13
   object Label6: TLabel
@@ -227,6 +228,8 @@ object Form1: TForm1
     Width = 325
     Height = 21
     TabOrder = 0
+    OnEnter = editCodEnter
+    OnExit = editCodExit
   end
   object Edit2: TEdit
     Left = 16
@@ -234,6 +237,8 @@ object Form1: TForm1
     Width = 208
     Height = 21
     TabOrder = 1
+    OnEnter = editCodEnter
+    OnExit = editCodExit
   end
   object Edit3: TEdit
     Left = 235
@@ -241,6 +246,8 @@ object Form1: TForm1
     Width = 45
     Height = 21
     TabOrder = 2
+    OnEnter = editCodEnter
+    OnExit = editCodExit
   end
   object Edit4: TEdit
     Left = 236
@@ -248,6 +255,8 @@ object Form1: TForm1
     Width = 180
     Height = 21
     TabOrder = 3
+    OnEnter = editCodEnter
+    OnExit = editCodExit
   end
   object Panel1: TPanel
     Left = 0
@@ -261,17 +270,19 @@ object Form1: TForm1
     Font.Color = clTeal
     Font.Height = -24
     Font.Name = 'MS Sans Serif'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentBackground = False
     ParentFont = False
     TabOrder = 4
   end
-  object Edit5: TEdit
+  object editCod: TEdit
     Left = 16
     Top = 64
     Width = 63
     Height = 21
     TabOrder = 5
+    OnEnter = editCodEnter
+    OnExit = editCodExit
   end
   object Edit6: TEdit
     Left = 292
@@ -279,6 +290,8 @@ object Form1: TForm1
     Width = 124
     Height = 21
     TabOrder = 6
+    OnEnter = editCodEnter
+    OnExit = editCodExit
   end
   object Edit7: TEdit
     Left = 75
@@ -286,6 +299,8 @@ object Form1: TForm1
     Width = 149
     Height = 21
     TabOrder = 7
+    OnEnter = editCodEnter
+    OnExit = editCodExit
   end
   object ComboBox1: TComboBox
     Left = 16
@@ -301,6 +316,8 @@ object Form1: TForm1
     Width = 112
     Height = 21
     TabOrder = 9
+    OnEnter = editCodEnter
+    OnExit = editCodExit
   end
   object Edit9: TEdit
     Left = 137
@@ -308,6 +325,8 @@ object Form1: TForm1
     Width = 135
     Height = 21
     TabOrder = 10
+    OnEnter = editCodEnter
+    OnExit = editCodExit
   end
   object Edit10: TEdit
     Left = 281
@@ -315,6 +334,8 @@ object Form1: TForm1
     Width = 135
     Height = 21
     TabOrder = 11
+    OnEnter = editCodEnter
+    OnExit = editCodExit
   end
   object Edit11: TEdit
     Left = 16
@@ -322,6 +343,8 @@ object Form1: TForm1
     Width = 208
     Height = 21
     TabOrder = 12
+    OnEnter = editCodEnter
+    OnExit = editCodExit
   end
   object CheckBox1: TCheckBox
     Left = 234
@@ -361,6 +384,8 @@ object Form1: TForm1
     Width = 182
     Height = 21
     TabOrder = 17
+    OnEnter = editCodEnter
+    OnExit = editCodExit
   end
   object Edit13: TEdit
     Left = 15
@@ -368,6 +393,8 @@ object Form1: TForm1
     Width = 209
     Height = 22
     TabOrder = 18
+    OnEnter = editCodEnter
+    OnExit = editCodExit
   end
   object Edit14: TEdit
     Left = 234
@@ -375,6 +402,8 @@ object Form1: TForm1
     Width = 182
     Height = 21
     TabOrder = 19
+    OnEnter = editCodEnter
+    OnExit = editCodExit
   end
   object Button1: TButton
     Left = 340
@@ -383,6 +412,7 @@ object Form1: TForm1
     Height = 25
     Caption = 'Concluir'
     TabOrder = 20
+    OnClick = Button1Click
   end
   object Memo1: TMemo
     Left = 16
@@ -390,14 +420,17 @@ object Form1: TForm1
     Width = 400
     Height = 153
     TabOrder = 21
+    OnEnter = editCodEnter
+    OnExit = editCodExit
   end
-  object Panel2: TPanel
+  object PInformacoes: TPanel
     Left = 441
     Top = 41
     Width = 480
     Height = 498
     Color = clInactiveBorder
     TabOrder = 22
+    Visible = False
     object Label17: TLabel
       Left = 29
       Top = 7
@@ -426,13 +459,14 @@ object Form1: TForm1
       Caption = 'Confirmar'
       TabOrder = 1
     end
-    object Button3: TButton
+    object btnAlterar: TButton
       Left = 295
       Top = 462
       Width = 75
       Height = 25
       Caption = 'Alterar'
       TabOrder = 2
+      OnClick = btnAlterarClick
     end
   end
   object XPManifest1: TXPManifest

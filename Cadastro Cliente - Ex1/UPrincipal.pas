@@ -13,7 +13,7 @@ type
     Edit3: TEdit;
     Edit4: TEdit;
     Panel1: TPanel;
-    Edit5: TEdit;
+    editCod: TEdit;
     Label6: TLabel;
     XPManifest1: TXPManifest;
     Label1: TLabel;
@@ -47,11 +47,15 @@ type
     Button1: TButton;
     Memo1: TMemo;
     Label13: TLabel;
-    Panel2: TPanel;
+    PInformacoes: TPanel;
     Label17: TLabel;
     Memo2: TMemo;
     Button2: TButton;
-    Button3: TButton;
+    btnAlterar: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure btnAlterarClick(Sender: TObject);
+    procedure editCodEnter(Sender: TObject);
+    procedure editCodExit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -64,5 +68,30 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  PInformacoes.Visible := true;
+end;
+
+procedure TForm1.btnAlterarClick(Sender: TObject);
+begin
+  PInformacoes.Visible := false;
+end;
+
+procedure TForm1.editCodEnter(Sender: TObject);
+begin
+  If (Sender is TEdit) then (Sender as TEdit).Color := clMoneyGreen
+  else
+    If (Sender is TMemo) then (Sender as TMemo).Color := clMoneyGreen
+
+end;
+
+procedure TForm1.editCodExit(Sender: TObject);
+begin
+  If (Sender is TEdit) then (Sender as TEdit).Color := clWindow
+  else
+    If (Sender is TMemo) then (Sender as TMemo).Color := clWindow
+end;
 
 end.
