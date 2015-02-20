@@ -1,10 +1,10 @@
 object Form1: TForm1
   Left = 188
   Top = 115
-  BorderStyle = bsNone
+  Width = 931
+  Height = 571
+  BorderIcons = []
   Caption = '001'
-  ClientHeight = 540
-  ClientWidth = 923
   Color = clInactiveBorder
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -481,7 +481,7 @@ object Form1: TForm1
     end
   end
   object XPManifest1: TXPManifest
-    Left = 384
+    Left = 408
     Top = 8
   end
 end
