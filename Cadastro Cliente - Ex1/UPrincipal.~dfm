@@ -1,9 +1,10 @@
 object Form1: TForm1
   Left = 188
   Top = 115
-  Width = 931
-  Height = 571
+  BorderStyle = bsNone
   Caption = '001'
+  ClientHeight = 540
+  ClientWidth = 923
   Color = clInactiveBorder
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,6 +12,7 @@ object Form1: TForm1
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
   Visible = True
   OnShow = FormShow
   PixelsPerInch = 96
@@ -400,7 +402,7 @@ object Form1: TForm1
     Left = 15
     Top = 141
     Width = 209
-    Height = 22
+    Height = 21
     TabOrder = 18
     OnEnter = editCodEnter
     OnExit = editCodExit
