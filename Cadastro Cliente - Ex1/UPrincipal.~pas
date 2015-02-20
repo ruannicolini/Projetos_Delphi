@@ -75,20 +75,26 @@ implementation
 procedure TForm1.btnConcluirClick(Sender: TObject);
 begin
   PInformacoes.Visible := true;
-  memoInf.Lines.Text := lbCod.Caption + ': ' + editCod.Text + ' ' +
-                        lbNome.Caption + ': ' + editName.Text + ' ' +
-                        
-                        lbEnd.Caption + ': ' + editEnd.Text + ' ' +
-                        lbNum.Caption + ': ' + editNum.Text + ' ' +
-                        lbComp.Caption + ': ' + editComp.Text + ' ' +
-                        lbUf.Caption + ': ' + cmbUf.Text + ' ' +
-                        lbCid.Caption + ': ' + editCid.Text + ' ' +
-                        lbBairro.Caption + ': ' + editBairro.Text + ' ' +
+  memoInf.Lines.Text := lbCod.Caption + ': ' + editCod.Text + #13 +
+                        lbNome.Caption + ': ' + editName.Text + #13 ;
+
+  if rbPFisica.Checked then
+    memoInf.Lines.Text :=  memoInf.Text + lbCpf.Caption + ': ' + editCpf.Text
+  else
+    memoInf.Lines.Text :=  memoInf.Text + lbcnpj.Caption + ': ' + editCnpj.Text
+                            + ' ' + lbIE.Caption + ': ' + editIE.Text + #13;
+
+  memoInf.Lines.Text := memoInf.Text + lbEnd.Caption + ': ' + editEnd.Text + #13 +
+                        lbNum.Caption + ': ' + editNum.Text + #13 +
+                        lbComp.Caption + ': ' + editComp.Text + #13 +
+                        lbUf.Caption + ': ' + cmbUf.Text + #13 +
+                        lbCid.Caption + ': ' + editCid.Text + #13 +
+                        lbBairro.Caption + ': ' + editBairro.Text + #13 +
                         lbCep.Caption + ': ' + editCep.Text + ' ' +
-                        lbFone1.Caption + ': ' + editFone1.Text + ' ' +
-                        lbFone2.Caption + ': ' + editFone2.Text + ' ' +
-                        lbEmail.Caption + ': ' + editEmail.Text + ' ' +
-                        lbObs.Caption + ': ' + memoObs.Text + ' ' ;
+                        lbFone1.Caption + ': ' + editFone1.Text + #13 +
+                        lbFone2.Caption + ': ' + editFone2.Text + #13 +
+                        lbEmail.Caption + ': ' + editEmail.Text + #13 +
+                        lbObs.Caption + ': ' + memoObs.Text + #13 ;
 
 end;
 
