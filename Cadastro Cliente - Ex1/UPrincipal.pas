@@ -61,6 +61,7 @@ type
     procedure rbPJuridicaEnter(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnFecharClick(Sender: TObject);
+    procedure btnConfirmarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -143,6 +144,33 @@ end;
 procedure TForm1.btnFecharClick(Sender: TObject);
 begin
   Form1.Close;
+end;
+
+procedure TForm1.btnConfirmarClick(Sender: TObject);
+begin
+  ShowMessage('Cadastro Concluído!');
+
+  memoInf.Clear;
+  memoObs.Clear;
+  editCod.Clear;
+  editName.Clear;
+  editCpf.Clear;
+  editCnpj.Clear;
+  editIE.Clear;
+  rbPFisica.Checked := true;
+  editEnd.Clear;
+  editNum.Clear;
+  editComp.Clear;
+  cmbUf.ItemIndex := -1;
+  editCid.Clear;
+  editBairro.Clear;
+  editCep.Clear;
+  editFone1.Clear;
+  editFone2.Clear;
+  editEmail.Clear;
+
+
+
 end;
 
 end.

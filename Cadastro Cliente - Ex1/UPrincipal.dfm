@@ -230,7 +230,7 @@ object Form1: TForm1
     Top = 64
     Width = 325
     Height = 21
-    TabOrder = 0
+    TabOrder = 1
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
@@ -239,7 +239,7 @@ object Form1: TForm1
     Top = 182
     Width = 208
     Height = 21
-    TabOrder = 1
+    TabOrder = 8
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
@@ -248,7 +248,7 @@ object Form1: TForm1
     Top = 182
     Width = 45
     Height = 21
-    TabOrder = 2
+    TabOrder = 9
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
@@ -257,7 +257,7 @@ object Form1: TForm1
     Top = 222
     Width = 180
     Height = 21
-    TabOrder = 3
+    TabOrder = 13
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
@@ -276,7 +276,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentBackground = False
     ParentFont = False
-    TabOrder = 4
+    TabOrder = 21
     object btnFechar: TButton
       Left = 882
       Top = 9
@@ -298,7 +298,7 @@ object Form1: TForm1
     Top = 64
     Width = 64
     Height = 21
-    TabOrder = 5
+    TabOrder = 0
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
@@ -307,7 +307,7 @@ object Form1: TForm1
     Top = 182
     Width = 124
     Height = 21
-    TabOrder = 6
+    TabOrder = 10
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
@@ -316,7 +316,7 @@ object Form1: TForm1
     Top = 222
     Width = 149
     Height = 21
-    TabOrder = 7
+    TabOrder = 12
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
@@ -326,7 +326,7 @@ object Form1: TForm1
     Width = 47
     Height = 21
     ItemHeight = 13
-    TabOrder = 8
+    TabOrder = 11
     Items.Strings = (
       'MG'
       'ES'
@@ -339,7 +339,7 @@ object Form1: TForm1
     Top = 263
     Width = 112
     Height = 21
-    TabOrder = 9
+    TabOrder = 14
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
@@ -348,7 +348,7 @@ object Form1: TForm1
     Top = 263
     Width = 135
     Height = 21
-    TabOrder = 10
+    TabOrder = 15
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
@@ -357,7 +357,7 @@ object Form1: TForm1
     Top = 263
     Width = 135
     Height = 21
-    TabOrder = 11
+    TabOrder = 16
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
@@ -366,7 +366,7 @@ object Form1: TForm1
     Top = 303
     Width = 208
     Height = 21
-    TabOrder = 12
+    TabOrder = 17
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
@@ -376,7 +376,7 @@ object Form1: TForm1
     Width = 47
     Height = 20
     Caption = 'Ativo'
-    TabOrder = 13
+    TabOrder = 18
   end
   object rGroupTipo: TRadioGroup
     Left = 16
@@ -384,7 +384,7 @@ object Form1: TForm1
     Width = 208
     Height = 33
     Caption = 'Tipo'
-    TabOrder = 14
+    TabOrder = 2
   end
   object rbPFisica: TRadioButton
     Left = 26
@@ -392,7 +392,7 @@ object Form1: TForm1
     Width = 103
     Height = 17
     Caption = 'Pessoa F'#237'sica'
-    TabOrder = 15
+    TabOrder = 3
     OnEnter = rbPFisicaEnter
   end
   object rbPJuridica: TRadioButton
@@ -401,7 +401,7 @@ object Form1: TForm1
     Width = 95
     Height = 17
     Caption = 'Pessoa Jur'#237'dica'
-    TabOrder = 16
+    TabOrder = 4
     OnEnter = rbPJuridicaEnter
   end
   object editCpf: TEdit
@@ -409,7 +409,7 @@ object Form1: TForm1
     Top = 102
     Width = 182
     Height = 21
-    TabOrder = 17
+    TabOrder = 5
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
@@ -418,7 +418,7 @@ object Form1: TForm1
     Top = 141
     Width = 209
     Height = 21
-    TabOrder = 18
+    TabOrder = 6
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
@@ -427,7 +427,7 @@ object Form1: TForm1
     Top = 142
     Width = 182
     Height = 21
-    TabOrder = 19
+    TabOrder = 7
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
@@ -445,7 +445,7 @@ object Form1: TForm1
     Top = 344
     Width = 400
     Height = 153
-    TabOrder = 21
+    TabOrder = 19
     OnEnter = editCodEnter
     OnExit = editCodExit
   end
@@ -483,7 +483,8 @@ object Form1: TForm1
       Width = 75
       Height = 25
       Caption = 'Confirmar'
-      TabOrder = 1
+      TabOrder = 2
+      OnClick = btnConfirmarClick
     end
     object btnAlterar: TButton
       Left = 295
@@ -491,7 +492,7 @@ object Form1: TForm1
       Width = 75
       Height = 25
       Caption = 'Alterar'
-      TabOrder = 2
+      TabOrder = 1
       OnClick = btnAlterarClick
     end
   end
