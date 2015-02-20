@@ -277,6 +277,21 @@ object Form1: TForm1
     ParentBackground = False
     ParentFont = False
     TabOrder = 4
+    object btnFechar: TButton
+      Left = 882
+      Top = 9
+      Width = 33
+      Height = 24
+      Caption = ' X '
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clRed
+      Font.Height = -13
+      Font.Name = 'Arial Unicode MS'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+      OnClick = btnFecharClick
+    end
   end
   object editCod: TEdit
     Left = 16

@@ -52,6 +52,7 @@ type
     btnConfirmar: TButton;
     btnAlterar: TButton;
     PCadCliente: TPanel;
+    btnFechar: TButton;
     procedure btnConcluirClick(Sender: TObject);
     procedure btnAlterarClick(Sender: TObject);
     procedure editCodEnter(Sender: TObject);
@@ -59,6 +60,7 @@ type
     procedure rbPFisicaEnter(Sender: TObject);
     procedure rbPJuridicaEnter(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure btnFecharClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -136,6 +138,11 @@ procedure TForm1.FormShow(Sender: TObject);
 begin
   rbPFisica.Checked := true;
   rbPFisicaEnter(rbPFisica);
+end;
+
+procedure TForm1.btnFecharClick(Sender: TObject);
+begin
+  Form1.Close;
 end;
 
 end.
