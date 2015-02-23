@@ -82,7 +82,7 @@ begin
                         lbNome.Caption + ': ' + editName.Text + #13 ;
 
   if rbPFisica.Checked then
-    memoInf.Lines.Text :=  memoInf.Text + lbCpf.Caption + ': ' + editCpf.Text
+    memoInf.Lines.Text :=  memoInf.Text + lbCpf.Caption + ': ' + editCpf.Text + #13
   else
     memoInf.Lines.Text :=  memoInf.Text + lbcnpj.Caption + ': ' + editCnpj.Text
                             + ' ' + lbIE.Caption + ': ' + editIE.Text + #13;
@@ -93,7 +93,7 @@ begin
                         lbUf.Caption + ': ' + cmbUf.Text + #13 +
                         lbCid.Caption + ': ' + editCid.Text + #13 +
                         lbBairro.Caption + ': ' + editBairro.Text + #13 +
-                        lbCep.Caption + ': ' + editCep.Text + ' ' +
+                        lbCep.Caption + ': ' + editCep.Text + #13 +
                         lbFone1.Caption + ': ' + editFone1.Text + #13 +
                         lbFone2.Caption + ': ' + editFone2.Text + #13 +
                         lbEmail.Caption + ': ' + editEmail.Text + #13 +

@@ -10,7 +10,6 @@ uses
 type
   TForm1 = class(TForm)
     Panel1: TPanel;
-    Image1: TImage;
     PageControl1: TPageControl;
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
@@ -20,6 +19,11 @@ type
     Panel3: TPanel;
     Panel4: TPanel;
     Panel5: TPanel;
+    Panel6: TPanel;
+    Panel7: TPanel;
+    Panel8: TPanel;
+    Label1: TLabel;
+    Image1: TImage;
   private
     { Private declarations }
   public
