@@ -24,6 +24,8 @@ type
     Panel8: TPanel;
     Label1: TLabel;
     Image1: TImage;
+    Panel9: TPanel;
+    Panel10: TPanel;
   private
     { Private declarations }
   public

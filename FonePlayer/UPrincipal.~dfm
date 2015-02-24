@@ -22,7 +22,7 @@ object Form1: TForm1
     Top = 40
     Width = 1072
     Height = 521
-    ActivePage = TabSheet1
+    ActivePage = TabSheet2
     Anchors = [akLeft, akTop, akRight, akBottom]
     Font.Charset = ANSI_CHARSET
     Font.Color = clBlack
@@ -61,6 +61,7 @@ object Form1: TForm1
             Width = 231
             Height = 25
             Align = alTop
+            BevelOuter = bvNone
             Caption = 'Play List'
             ParentBackground = False
             TabOrder = 0
@@ -82,6 +83,27 @@ object Form1: TForm1
     object TabSheet2: TTabSheet
       Caption = 'V'#237'deo'
       ImageIndex = 1
+      object Panel9: TPanel
+        Left = 0
+        Top = 0
+        Width = 1064
+        Height = 489
+        Align = alClient
+        Color = clSilver
+        ParentBackground = False
+        TabOrder = 0
+        object Panel10: TPanel
+          Left = 6
+          Top = 6
+          Width = 1051
+          Height = 478
+          Align = alCustom
+          Anchors = [akLeft, akTop, akRight, akBottom]
+          Color = clWhite
+          ParentBackground = False
+          TabOrder = 0
+        end
+      end
     end
     object TabSheet3: TTabSheet
       Caption = 'Configura'#231#245'es'
@@ -94,17 +116,17 @@ object Form1: TForm1
     Width = 1070
     Height = 42
     Align = alTop
-    Color = 33023
+    Color = cl3DDkShadow
     ParentBackground = False
     TabOrder = 1
     object Panel1: TPanel
       Left = 5
       Top = 5
-      Width = 1061
+      Width = 1060
       Height = 33
       Align = alCustom
       Anchors = [akLeft, akTop, akRight]
-      Color = clWhite
+      Color = clWindow
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -24
@@ -114,12 +136,12 @@ object Form1: TForm1
       ParentFont = False
       TabOrder = 0
       DesignSize = (
-        1061
+        1060
         33)
       object Panel8: TPanel
         Left = 440
         Top = 0
-        Width = 169
+        Width = 168
         Height = 33
         Anchors = [akLeft, akTop, akRight, akBottom]
         BevelOuter = bvNone
@@ -128,7 +150,7 @@ object Form1: TForm1
         object Label1: TLabel
           Left = 37
           Top = -1
-          Width = 129
+          Width = 128
           Height = 34
           Align = alCustom
           Anchors = [akLeft, akTop, akRight, akBottom]
@@ -137,7 +159,7 @@ object Form1: TForm1
         object Image1: TImage
           Left = 0
           Top = 0
-          Width = 33
+          Width = 32
           Height = 33
           Align = alCustom
           Anchors = [akLeft, akTop, akRight, akBottom]
