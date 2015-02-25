@@ -5,7 +5,10 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, ComCtrls, XPMan,
-  StdCtrls;
+  StdCtrls,
+  jpeg,
+  MPlayer,
+  Buttons;
 
 type
   TForm1 = class(TForm)
@@ -26,6 +29,14 @@ type
     Image1: TImage;
     Panel9: TPanel;
     Panel10: TPanel;
+    Image2: TImage;
+    Panel11: TPanel;
+    Image3: TImage;
+    MediaPlayer1: TMediaPlayer;
+    ProgressBar1: TProgressBar;
+    OpenDialog1: TOpenDialog;
+    ProgressBar2: TProgressBar;
+    procedure Panel4DblClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -39,4 +50,16 @@ implementation
 
 {$R *.dfm}
 
+procedure TForm1.Panel4DblClick(Sender: TObject);
+begin
+  MediaPlayer1.Close;
+  if OpenDialog1.Execute then
+    begin
+      MediaPlayer1.FileName := OpenDialog1.FileName;
+      MediaPlayer1.Open;
+      MediaPlayer1.Play
+    end
+
+
+end;
 end.
