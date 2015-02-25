@@ -8,7 +8,8 @@ uses
   StdCtrls,
   jpeg,
   MPlayer,
-  Buttons;
+  Buttons,
+  ImgList;
 
 type
   TForm1 = class(TForm)
@@ -16,7 +17,6 @@ type
     PageControl1: TPageControl;
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
-    TabSheet3: TTabSheet;
     XPManifest1: TXPManifest;
     Panel2: TPanel;
     Panel3: TPanel;
@@ -38,6 +38,8 @@ type
     ProgressBar2: TProgressBar;
     MediaPlayer2: TMediaPlayer;
     Timer1: TTimer;
+    ImageList1: TImageList;
+    Image4: TImage;
     procedure Panel4DblClick(Sender: TObject);
     procedure Panel10DblClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -61,7 +63,7 @@ begin
     begin
       MediaPlayer1.FileName := OpenDialog1.FileName;
       MediaPlayer1.Open;
-      MediaPlayer1.Play;
+      {MediaPlayer1.Play;}
       ProgressBar1.Min := 0;
       ProgressBar1.Max := MediaPlayer1.Length;
       {ProgressBar1.Position := MediaPlayer1.Position;}
