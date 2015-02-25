@@ -36,7 +36,11 @@ type
     ProgressBar1: TProgressBar;
     OpenDialog1: TOpenDialog;
     ProgressBar2: TProgressBar;
+    MediaPlayer2: TMediaPlayer;
+    Timer1: TTimer;
     procedure Panel4DblClick(Sender: TObject);
+    procedure Panel10DblClick(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
   private
     { Private declarations }
   public
@@ -57,9 +61,35 @@ begin
     begin
       MediaPlayer1.FileName := OpenDialog1.FileName;
       MediaPlayer1.Open;
-      MediaPlayer1.Play
+      MediaPlayer1.Play;
+      ProgressBar1.Min := 0;
+      ProgressBar1.Max := MediaPlayer1.Length;
+      {ProgressBar1.Position := MediaPlayer1.Position;}
+      Timer1.Enabled := true;
     end
 
 
 end;
+procedure TForm1.Panel10DblClick(Sender: TObject);
+begin
+  MediaPlayer1.Close;
+  if OpenDialog1.Execute then
+    begin
+      MediaPlayer1.Close;
+      MediaPlayer2.FileName := OpenDialog1.FileName;
+      MediaPlayer2.Open;
+      MediaPlayer2.Play;
+      ProgressBar1.Min := 0;
+      ProgressBar1.Max := MediaPlayer1.Length
+
+
+    end
+end;
+
+procedure TForm1.Timer1Timer(Sender: TObject);
+begin
+  if Progressbar1.Max <> 0 then
+    Progressbar1.Position := mediaplayer1.Position;
+end;
+
 end.

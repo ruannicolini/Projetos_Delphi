@@ -7166,7 +7166,7 @@ object Form1: TForm1
           object MediaPlayer1: TMediaPlayer
             Left = 308
             Top = 424
-            Width = 281
+            Width = 197
             Height = 25
             ColoredButtons = []
             EnabledButtons = [btPlay, btPause, btStop, btNext, btPrev, btStep, btBack]
@@ -7209,6 +7209,7 @@ object Form1: TForm1
           Color = clWhite
           ParentBackground = False
           TabOrder = 0
+          OnDblClick = Panel10DblClick
           DesignSize = (
             1052
             478)
@@ -7219,6 +7220,17 @@ object Form1: TForm1
             Height = 17
             Anchors = [akLeft, akRight]
             TabOrder = 0
+          end
+          object MediaPlayer2: TMediaPlayer
+            Left = 412
+            Top = 424
+            Width = 197
+            Height = 25
+            ColoredButtons = []
+            EnabledButtons = [btPlay, btPause, btStop, btNext, btPrev, btStep, btBack]
+            VisibleButtons = [btPlay, btPause, btStop, btNext, btPrev, btStep, btBack]
+            Anchors = []
+            TabOrder = 1
           end
         end
       end
@@ -23529,6 +23541,12 @@ object Form1: TForm1
   end
   object OpenDialog1: TOpenDialog
     Left = 845
-    Top = 5
+    Top = 7
+  end
+  object Timer1: TTimer
+    Enabled = False
+    OnTimer = Timer1Timer
+    Left = 805
+    Top = 8
   end
 end
