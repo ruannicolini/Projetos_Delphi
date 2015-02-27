@@ -111,19 +111,12 @@ var
 begin
   if Progressbar1.Max <> 0 then
       Progressbar1.Position := mediaplayer1.Position;
-      
-  if (Progressbar1.Position = Progressbar1.Max) then
-    begin
-      if (btnTocar.Caption = 'Parar Play List') then
-        begin
-          IndPlayList := IndPlayList +1;
-          status := true
-        end
-    end;
+
 
   if (btnTocar.Caption = 'Parar Play List') then
     for i := 0 to ListBox1.Count -1 do
     begin
+        
       if ((ExtractFileName(RichEdit1.Lines[i]) = ListBox1.Items[IndPlayList])and(status = true)) then
       begin
         MediaPlayer1.FileName := RichEdit1.Lines[i];
@@ -134,8 +127,24 @@ begin
         ProgressBar1.Position := MediaPlayer1.Position;
         status := false;
         Timer1.Enabled := true;
-
       end
+    end;
+
+  if (Progressbar1.Position = Progressbar1.Max) then
+    begin
+      if (btnTocar.Caption = 'Parar Play List') then
+        begin
+          if(IndPlayList = (ListBox1.Count-1)) then
+            begin
+              IndPlayList := 0;
+              status := true
+            end
+          else
+            begin
+              IndPlayList := IndPlayList +1;
+              status := true
+            end
+        end
     end;
 
 end;
@@ -177,6 +186,7 @@ end;
 
 procedure TForm1.btnTocarClick(Sender: TObject);
 begin
+  IndPlayList := 0;
   if (btnTocar.Caption = 'Parar Play List') then
     btnTocar.Caption := 'Tocar'
   else
