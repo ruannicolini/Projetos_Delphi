@@ -9,11 +9,11 @@ uses
   jpeg,
   MPlayer,
   Buttons,
-  ImgList;
+  ImgList,
+  OleCtrls, SHDocVw;
 
 type
   TForm1 = class(TForm)
-    Panel1: TPanel;
     PageControl1: TPageControl;
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
@@ -21,28 +21,36 @@ type
     Panel2: TPanel;
     Panel3: TPanel;
     Panel4: TPanel;
-    Panel5: TPanel;
     Panel6: TPanel;
     Panel7: TPanel;
-    Panel8: TPanel;
-    Label1: TLabel;
-    Image1: TImage;
     Panel9: TPanel;
     Panel10: TPanel;
-    Image2: TImage;
     Panel11: TPanel;
     Image3: TImage;
     MediaPlayer1: TMediaPlayer;
-    ProgressBar1: TProgressBar;
     OpenDialog1: TOpenDialog;
-    ProgressBar2: TProgressBar;
     MediaPlayer2: TMediaPlayer;
     Timer1: TTimer;
     ImageList1: TImageList;
     Image4: TImage;
+    Panel1: TPanel;
+    Button1: TButton;
+    SpeedButton1: TSpeedButton;
+    Panel5: TPanel;
+    RichEdit1: TRichEdit;
+    SpeedButton2: TSpeedButton;
+    ProgressBar1: TProgressBar;
+    StatusBar1: TStatusBar;
+    ListBox1: TListBox;
     procedure Panel4DblClick(Sender: TObject);
     procedure Panel10DblClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure Panel10Click(Sender: TObject);
+    procedure FormResize(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -59,14 +67,16 @@ implementation
 procedure TForm1.Panel4DblClick(Sender: TObject);
 begin
   MediaPlayer1.Close;
+  MediaPlayer2.Close;
   if OpenDialog1.Execute then
     begin
       MediaPlayer1.FileName := OpenDialog1.FileName;
       MediaPlayer1.Open;
-      {MediaPlayer1.Play;}
+      StatusBar1.Panels.Items[0].Text := 'AGORA:   ' + ExtractFileName(MediaPlayer1.FileName);
       ProgressBar1.Min := 0;
+
       ProgressBar1.Max := MediaPlayer1.Length;
-      {ProgressBar1.Position := MediaPlayer1.Position;}
+      ProgressBar1.Position := MediaPlayer1.Position;
       Timer1.Enabled := true;
     end
 
@@ -75,17 +85,16 @@ end;
 procedure TForm1.Panel10DblClick(Sender: TObject);
 begin
   MediaPlayer1.Close;
+  MediaPlayer2.Close;
   if OpenDialog1.Execute then
     begin
-      MediaPlayer1.Close;
+      MediaPlayer2.Display := Panel10;
+      MediaPlayer2.DisplayRect := Panel10.ClientRect;
       MediaPlayer2.FileName := OpenDialog1.FileName;
+      
       MediaPlayer2.Open;
-      MediaPlayer2.Play;
-      ProgressBar1.Min := 0;
-      ProgressBar1.Max := MediaPlayer1.Length
-
-
     end
+
 end;
 
 procedure TForm1.Timer1Timer(Sender: TObject);
@@ -94,4 +103,44 @@ begin
     Progressbar1.Position := mediaplayer1.Position;
 end;
 
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  PageControl1.ActivePageIndex := 1;
+end;
+
+procedure TForm1.SpeedButton1Click(Sender: TObject);
+begin
+  PageControl1.ActivePageIndex := 0;
+end;
+
+procedure TForm1.Panel10Click(Sender: TObject);
+begin
+  {WebBrowser1.Navigate(extractFilepath(application.exename) + 'index.html'); }
+end;
+
+procedure TForm1.FormResize(Sender: TObject);
+begin
+  MediaPlayer2.DisplayRect := Panel10.ClientRect;
+end;
+
+procedure TForm1.SpeedButton2Click(Sender: TObject);
+begin
+  if OpenDialog1.Execute then
+    begin
+      RichEdit1.Lines.Add(OpenDialog1.FileName);
+      
+      RichEdit1.Lines.SaveToFile(extractFilepath(application.exename) + 'teste.txt');
+      {RichEdit1.Lines.LoadFromFile(extractFilepath(application.exename) + 'teste.txt');}
+
+
+    end
+end;
+
+procedure TForm1.FormShow(Sender: TObject);
+begin
+  RichEdit1.Lines.LoadFromFile(extractFilepath(application.exename) + 'teste.txt');
+end;
+
 end.
+
+
