@@ -14237,13 +14237,14 @@ object Form1: TForm1
               Font.Style = []
               ParentFont = False
             end
-            object SpeedButton5: TSpeedButton
+            object btnTocar: TSpeedButton
               Left = 21
               Top = 424
               Width = 176
               Height = 24
               Anchors = [akLeft, akBottom]
               Caption = 'Tocar'
+              OnClick = btnTocarClick
             end
             object SpeedButton3: TSpeedButton
               Left = 202
@@ -14368,7 +14369,6 @@ object Form1: TForm1
           Color = clWhite
           ParentBackground = False
           TabOrder = 0
-          OnClick = Panel10Click
           OnDblClick = Panel10DblClick
           DesignSize = (
             1052

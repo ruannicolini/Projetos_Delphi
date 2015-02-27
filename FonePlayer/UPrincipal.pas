@@ -42,7 +42,7 @@ uses
     ProgressBar1: TProgressBar;
     StatusBar1: TStatusBar;
     ListBox1: TListBox;
-    SpeedButton5: TSpeedButton;
+    btnTocar: TSpeedButton;
     SpeedButton3: TSpeedButton;
     SpeedButton4: TSpeedButton;
     procedure Panel4DblClick(Sender: TObject);
@@ -50,9 +50,9 @@ uses
     procedure Timer1Timer(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
-    procedure Panel10Click(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure btnTocarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -62,6 +62,8 @@ uses
 
 var
   Form1: TForm1;
+  IndPlayList: Integer;
+  status : Boolean;
 
 implementation
 
@@ -69,12 +71,13 @@ implementation
 
 procedure TForm1.Panel4DblClick(Sender: TObject);
 begin
+  btnTocar.Caption := 'Tocar';
   MediaPlayer1.Close;
   MediaPlayer2.Close;
   if OpenDialog1.Execute then
     begin
       MediaPlayer1.FileName := OpenDialog1.FileName;
-      
+
       MediaPlayer1.Open;
       StatusBar1.Panels.Items[0].Text := 'AGORA:   ' + ExtractFileName(MediaPlayer1.FileName);
       ProgressBar1.Min := 0;
@@ -97,14 +100,44 @@ begin
       MediaPlayer2.FileName := OpenDialog1.FileName;
       
       MediaPlayer2.Open;
+      Timer1.Enabled := true;
     end
 
 end;
 
 procedure TForm1.Timer1Timer(Sender: TObject);
+var
+  i:Integer;
 begin
   if Progressbar1.Max <> 0 then
-    Progressbar1.Position := mediaplayer1.Position;
+      Progressbar1.Position := mediaplayer1.Position;
+      
+  if (Progressbar1.Position = Progressbar1.Max) then
+    begin
+      if (btnTocar.Caption = 'Parar Play List') then
+        begin
+          IndPlayList := IndPlayList +1;
+          status := true
+        end
+    end;
+
+  if (btnTocar.Caption = 'Parar Play List') then
+    for i := 0 to ListBox1.Count -1 do
+    begin
+      if ((ExtractFileName(RichEdit1.Lines[i]) = ListBox1.Items[IndPlayList])and(status = true)) then
+      begin
+        MediaPlayer1.FileName := RichEdit1.Lines[i];
+        MediaPlayer1.Open;
+        StatusBar1.Panels.Items[0].Text := 'AGORA:   ' + ExtractFileName(MediaPlayer1.FileName);
+        ProgressBar1.Min := 0;
+        ProgressBar1.Max := MediaPlayer1.Length;
+        ProgressBar1.Position := MediaPlayer1.Position;
+        status := false;
+        Timer1.Enabled := true;
+
+      end
+    end;
+
 end;
 
 procedure TForm1.Button1Click(Sender: TObject);
@@ -117,11 +150,6 @@ begin
   PageControl1.ActivePageIndex := 0;
 end;
 
-procedure TForm1.Panel10Click(Sender: TObject);
-begin
-  {WebBrowser1.Navigate(extractFilepath(application.exename) + 'index.html'); }
-end;
-
 procedure TForm1.FormResize(Sender: TObject);
 begin
   MediaPlayer2.DisplayRect := Panel10.ClientRect;
@@ -132,6 +160,9 @@ var
   i:integer;
   str:String;
 begin
+      IndPlayList := 0;
+      status := false;
+      
       RichEdit1.Lines.LoadFromFile(extractFilepath(application.exename) + 'teste.txt');
       StatusBar1.Panels.Items[0].Text := 'Arquivo test.txt';
 
@@ -142,6 +173,18 @@ begin
       end;
 
 
+end;
+
+procedure TForm1.btnTocarClick(Sender: TObject);
+begin
+  if (btnTocar.Caption = 'Parar Play List') then
+    btnTocar.Caption := 'Tocar'
+  else
+    begin
+    btnTocar.Caption := 'Parar Play List';
+    status := true;
+    Timer1.Enabled := true;
+  end
 end;
 
 end.
