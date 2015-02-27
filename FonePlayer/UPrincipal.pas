@@ -12,7 +12,7 @@ uses
   ImgList,
   OleCtrls, SHDocVw;
 
-type
+  type
   TForm1 = class(TForm)
     PageControl1: TPageControl;
     TabSheet1: TTabSheet;
@@ -42,6 +42,9 @@ type
     ProgressBar1: TProgressBar;
     StatusBar1: TStatusBar;
     ListBox1: TListBox;
+    SpeedButton5: TSpeedButton;
+    SpeedButton3: TSpeedButton;
+    SpeedButton4: TSpeedButton;
     procedure Panel4DblClick(Sender: TObject);
     procedure Panel10DblClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -49,12 +52,12 @@ type
     procedure SpeedButton1Click(Sender: TObject);
     procedure Panel10Click(Sender: TObject);
     procedure FormResize(Sender: TObject);
-    procedure SpeedButton2Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
+    
   end;
 
 var
@@ -71,6 +74,7 @@ begin
   if OpenDialog1.Execute then
     begin
       MediaPlayer1.FileName := OpenDialog1.FileName;
+      
       MediaPlayer1.Open;
       StatusBar1.Panels.Items[0].Text := 'AGORA:   ' + ExtractFileName(MediaPlayer1.FileName);
       ProgressBar1.Min := 0;
@@ -123,22 +127,21 @@ begin
   MediaPlayer2.DisplayRect := Panel10.ClientRect;
 end;
 
-procedure TForm1.SpeedButton2Click(Sender: TObject);
-begin
-  if OpenDialog1.Execute then
-    begin
-      RichEdit1.Lines.Add(OpenDialog1.FileName);
-      
-      RichEdit1.Lines.SaveToFile(extractFilepath(application.exename) + 'teste.txt');
-      {RichEdit1.Lines.LoadFromFile(extractFilepath(application.exename) + 'teste.txt');}
-
-
-    end
-end;
-
 procedure TForm1.FormShow(Sender: TObject);
+var
+  i:integer;
+  str:String;
 begin
-  RichEdit1.Lines.LoadFromFile(extractFilepath(application.exename) + 'teste.txt');
+      RichEdit1.Lines.LoadFromFile(extractFilepath(application.exename) + 'teste.txt');
+      StatusBar1.Panels.Items[0].Text := 'Arquivo test.txt';
+
+      for i := 0 to RichEdit1.Lines.Count -1 do
+      begin
+        str := RichEdit1.Lines[i];
+        ListBox1.Items.Add(ExtractFileName(str));
+      end;
+
+
 end;
 
 end.

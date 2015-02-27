@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 196
-  Top = 119
+  Left = 205
+  Top = 126
   BorderStyle = bsSingle
   ClientHeight = 577
   ClientWidth = 1070
@@ -14224,25 +14224,60 @@ object Form1: TForm1
                 55ACAAD56B28AD650A4549C7895A358568D615A3585FFFD9}
             end
             object SpeedButton2: TSpeedButton
-              Left = 146
-              Top = 424
-              Width = 57
-              Height = 22
-              Anchors = [akLeft, akTop, akRight, akBottom]
-              Caption = 'Add'
+              Left = 202
+              Top = 8
+              Width = 23
+              Height = 19
+              Anchors = [akLeft, akTop, akRight]
+              Caption = '+'
               Font.Charset = ANSI_CHARSET
               Font.Color = clBlack
               Font.Height = -15
               Font.Name = 'Baskerville Old Face'
               Font.Style = []
               ParentFont = False
-              OnClick = SpeedButton2Click
+            end
+            object SpeedButton5: TSpeedButton
+              Left = 21
+              Top = 424
+              Width = 176
+              Height = 24
+              Anchors = [akLeft, akBottom]
+              Caption = 'Tocar'
+            end
+            object SpeedButton3: TSpeedButton
+              Left = 202
+              Top = 32
+              Width = 23
+              Height = 33
+              Anchors = [akLeft, akTop, akRight]
+              Caption = '/\'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clBlack
+              Font.Height = -15
+              Font.Name = 'Baskerville Old Face'
+              Font.Style = []
+              ParentFont = False
+            end
+            object SpeedButton4: TSpeedButton
+              Left = 202
+              Top = 71
+              Width = 23
+              Height = 33
+              Anchors = [akLeft, akTop, akRight]
+              Caption = '\/'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clBlack
+              Font.Height = -15
+              Font.Name = 'Baskerville Old Face'
+              Font.Style = []
+              ParentFont = False
             end
             object RichEdit1: TRichEdit
-              Left = 24
+              Left = 34
               Top = 8
-              Width = 177
-              Height = 412
+              Width = 142
+              Height = 405
               Anchors = [akLeft, akTop, akRight, akBottom]
               Color = clWhite
               TabOrder = 0
@@ -14250,11 +14285,14 @@ object Form1: TForm1
               WordWrap = False
             end
             object ListBox1: TListBox
-              Left = 25
+              Left = 20
               Top = 8
-              Width = 176
-              Height = 413
+              Width = 177
+              Height = 411
+              Anchors = [akLeft, akTop, akRight, akBottom]
               ItemHeight = 17
+              ParentShowHint = False
+              ShowHint = False
               TabOrder = 1
             end
           end
@@ -14338,7 +14376,7 @@ object Form1: TForm1
           object MediaPlayer2: TMediaPlayer
             Left = 412
             Top = 429
-            Width = 197
+            Width = -6
             Height = 25
             ColoredButtons = []
             EnabledButtons = [btPlay, btPause, btStop, btNext, btPrev, btStep, btBack]
