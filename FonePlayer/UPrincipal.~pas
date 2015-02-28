@@ -55,6 +55,7 @@ uses
     procedure btnTocarClick(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
     procedure SpeedButton4Click(Sender: TObject);
+    procedure ListBox1DragDrop(Sender, Source: TObject; X, Y: Integer);
   private
     { Private declarations }
   public
@@ -212,12 +213,22 @@ procedure TForm1.SpeedButton4Click(Sender: TObject);
 var posicao: integer;
 begin
   posicao := ListBox1.ItemIndex; 
-if posicao >= ListBox1.Items.Count -1 then begin 
-listbox1.Items.Move(ListBox1.ItemIndex,0); 
-posicao := -1; 
-end else 
-listbox1.Items.Move(ListBox1.ItemIndex,ListBox1.ItemIndex + 1); 
-ListBox1.ItemIndex := posicao + 1;
+  if posicao >= ListBox1.Items.Count -1 then begin
+  listbox1.Items.Move(ListBox1.ItemIndex,0);
+  posicao := -1;
+  end else
+  listbox1.Items.Move(ListBox1.ItemIndex,ListBox1.ItemIndex + 1);
+  ListBox1.ItemIndex := posicao + 1;
+end;
+
+procedure TForm1.ListBox1DragDrop(Sender, Source: TObject; X, Y: Integer);
+begin
+  DropIndex := TListBox(Sender).ItemAtPos(Point(X,Y),False);
+  with TListBox(Source) do
+  begin
+    TListBox(Sender).Items.Insert(DropIndex, Items[ItemIndex]);
+    Items.Delete(ItemIndex);
+  end;
 end;
 
 end.

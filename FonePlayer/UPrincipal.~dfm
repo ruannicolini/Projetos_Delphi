@@ -14297,6 +14297,7 @@ object Form1: TForm1
               ParentShowHint = False
               ShowHint = False
               TabOrder = 1
+              OnDragDrop = ListBox1DragDrop
             end
           end
         end
