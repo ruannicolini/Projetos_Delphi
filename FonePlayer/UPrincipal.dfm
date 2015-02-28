@@ -14259,6 +14259,7 @@ object Form1: TForm1
               Font.Name = 'Baskerville Old Face'
               Font.Style = []
               ParentFont = False
+              OnClick = SpeedButton3Click
             end
             object SpeedButton4: TSpeedButton
               Left = 202
@@ -14273,6 +14274,7 @@ object Form1: TForm1
               Font.Name = 'Baskerville Old Face'
               Font.Style = []
               ParentFont = False
+              OnClick = SpeedButton4Click
             end
             object RichEdit1: TRichEdit
               Left = 34

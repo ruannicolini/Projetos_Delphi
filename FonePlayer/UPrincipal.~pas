@@ -53,6 +53,8 @@ uses
     procedure FormResize(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnTocarClick(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure SpeedButton4Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -195,6 +197,27 @@ begin
     status := true;
     Timer1.Enabled := true;
   end
+end;
+
+procedure TForm1.SpeedButton3Click(Sender: TObject);
+var posicao: integer;
+begin
+  posicao := ListBox1.ItemIndex; 
+  listbox1.Items.Move(ListBox1.ItemIndex,ListBox1.ItemIndex - 1);
+  if posicao <= 0 then posicao := ListBox1.Items.Count;
+  ListBox1.ItemIndex := posicao - 1;  
+end;
+
+procedure TForm1.SpeedButton4Click(Sender: TObject);
+var posicao: integer;
+begin
+  posicao := ListBox1.ItemIndex; 
+if posicao >= ListBox1.Items.Count -1 then begin 
+listbox1.Items.Move(ListBox1.ItemIndex,0); 
+posicao := -1; 
+end else 
+listbox1.Items.Move(ListBox1.ItemIndex,ListBox1.ItemIndex + 1); 
+ListBox1.ItemIndex := posicao + 1;
 end;
 
 end.
