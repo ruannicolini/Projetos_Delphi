@@ -14298,6 +14298,7 @@ object Form1: TForm1
               ShowHint = False
               TabOrder = 1
               OnDragDrop = ListBox1DragDrop
+              OnDragOver = ListBox1DragOver
             end
           end
         end

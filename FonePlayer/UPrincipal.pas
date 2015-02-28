@@ -56,6 +56,8 @@ uses
     procedure SpeedButton3Click(Sender: TObject);
     procedure SpeedButton4Click(Sender: TObject);
     procedure ListBox1DragDrop(Sender, Source: TObject; X, Y: Integer);
+    procedure ListBox1DragOver(Sender, Source: TObject; X, Y: Integer;
+      State: TDragState; var Accept: Boolean);
   private
     { Private declarations }
   public
@@ -230,6 +232,25 @@ begin
   begin
     TListBox(Sender).Items.Insert(DropIndex, Items[ItemIndex]);
     Items.Delete(ItemIndex);
+  end;
+end;
+
+procedure TForm1.ListBox1DragOver(Sender, Source: TObject; X, Y: Integer;
+  State: TDragState; var Accept: Boolean);
+var
+  DropIndex: Integer;
+  TempStr: string;
+begin
+  with TListBox(Sender) do
+  begin
+    DropIndex := ItemAtPos(Point(X,Y), True);
+    if (DropIndex > -1) and (DropIndex <> ItemIndex) then
+    begin
+      TempStr := Items[DropIndex];
+      Items[DropIndex] := Items[ItemIndex];
+      Items[ItemIndex] := TempStr;
+      ItemIndex := DropIndex;
+    end;
   end;
 end;
 
