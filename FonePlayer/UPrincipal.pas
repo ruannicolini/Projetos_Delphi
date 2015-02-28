@@ -45,6 +45,8 @@ uses
     btnTocar: TSpeedButton;
     SpeedButton3: TSpeedButton;
     SpeedButton4: TSpeedButton;
+    SpeedButton5: TSpeedButton;
+    SpeedButton6: TSpeedButton;
     procedure Panel4DblClick(Sender: TObject);
     procedure Panel10DblClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -58,6 +60,8 @@ uses
     procedure ListBox1DragDrop(Sender, Source: TObject; X, Y: Integer);
     procedure ListBox1DragOver(Sender, Source: TObject; X, Y: Integer;
       State: TDragState; var Accept: Boolean);
+    procedure SpeedButton5Click(Sender: TObject);
+    procedure SpeedButton6Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -121,7 +125,6 @@ begin
   if (btnTocar.Caption = 'Parar Play List') then
     for i := 0 to ListBox1.Count -1 do
     begin
-        
       if ((ExtractFileName(RichEdit1.Lines[i]) = ListBox1.Items[IndPlayList])and(status = true)) then
       begin
         MediaPlayer1.FileName := RichEdit1.Lines[i];
@@ -132,6 +135,7 @@ begin
         ProgressBar1.Position := MediaPlayer1.Position;
         status := false;
         Timer1.Enabled := true;
+        MediaPlayer1.Play;
       end
     end;
 
@@ -252,6 +256,39 @@ begin
       ItemIndex := DropIndex;
     end;
   end;
+end;
+
+procedure TForm1.SpeedButton5Click(Sender: TObject);
+begin
+if (btnTocar.Caption = 'Parar Play List') then
+  begin
+    if(IndPlayList = (ListBox1.Count-1)) then
+    begin
+      IndPlayList := 0;
+      status := true
+    end
+    else
+      begin
+        IndPlayList := IndPlayList +1;
+        status := true
+      end
+  end
+
+end;
+
+procedure TForm1.SpeedButton6Click(Sender: TObject);
+begin
+    if(IndPlayList = 0) then
+    begin
+      IndPlayList := ListBox1.Count-1;
+      status := true
+    end
+    else
+      begin
+        IndPlayList := IndPlayList -1;
+        status := true
+      end
+
 end;
 
 end.

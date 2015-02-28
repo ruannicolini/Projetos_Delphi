@@ -14317,6 +14317,22 @@ object Form1: TForm1
           DesignSize = (
             817
             476)
+          object SpeedButton5: TSpeedButton
+            Left = 394
+            Top = 382
+            Width = 26
+            Height = 22
+            Caption = '>'
+            OnClick = SpeedButton5Click
+          end
+          object SpeedButton6: TSpeedButton
+            Left = 420
+            Top = 382
+            Width = 26
+            Height = 22
+            Caption = '<'
+            OnClick = SpeedButton6Click
+          end
           object MediaPlayer1: TMediaPlayer
             Left = 308
             Top = 413
