@@ -62,6 +62,7 @@ uses
       State: TDragState; var Accept: Boolean);
     procedure SpeedButton5Click(Sender: TObject);
     procedure SpeedButton6Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -289,6 +290,17 @@ begin
         status := true
       end
 
+end;
+
+procedure TForm1.SpeedButton2Click(Sender: TObject);
+begin
+  if OpenDialog1.Execute then
+    begin
+      RichEdit1.Lines.Add(OpenDialog1.FileName);
+      RichEdit1.Lines.SaveToFile(extractFilepath(application.exename) + 'teste.txt');
+      ListBox1.Items.Add(ExtractFileName(OpenDialog1.FileName))
+
+    end
 end;
 
 end.

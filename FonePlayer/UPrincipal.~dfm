@@ -14236,6 +14236,7 @@ object Form1: TForm1
               Font.Name = 'Baskerville Old Face'
               Font.Style = []
               ParentFont = False
+              OnClick = SpeedButton2Click
             end
             object btnTocar: TSpeedButton
               Left = 21
@@ -14318,18 +14319,20 @@ object Form1: TForm1
             817
             476)
           object SpeedButton5: TSpeedButton
-            Left = 394
+            Left = 395
             Top = 382
             Width = 26
             Height = 22
+            Anchors = []
             Caption = '>'
             OnClick = SpeedButton5Click
           end
           object SpeedButton6: TSpeedButton
-            Left = 420
+            Left = 421
             Top = 382
             Width = 26
             Height = 22
+            Anchors = []
             Caption = '<'
             OnClick = SpeedButton6Click
           end
