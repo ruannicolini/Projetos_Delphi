@@ -38,7 +38,7 @@ uses
     SpeedButton1: TSpeedButton;
     Panel5: TPanel;
     RichEdit1: TRichEdit;
-    SpeedButton2: TSpeedButton;
+    btnAdd: TSpeedButton;
     ProgressBar1: TProgressBar;
     StatusBar1: TStatusBar;
     ListBox1: TListBox;
@@ -47,6 +47,7 @@ uses
     btnMoveBaixo: TSpeedButton;
     SpeedButton5: TSpeedButton;
     SpeedButton6: TSpeedButton;
+    btnRemove: TSpeedButton;
     procedure Panel4DblClick(Sender: TObject);
     procedure Panel10DblClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -62,9 +63,10 @@ uses
       State: TDragState; var Accept: Boolean);
     procedure SpeedButton5Click(Sender: TObject);
     procedure SpeedButton6Click(Sender: TObject);
-    procedure SpeedButton2Click(Sender: TObject);
+    procedure btnAddClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ListBox1Enter(Sender: TObject);
+    procedure btnRemoveClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -246,22 +248,31 @@ begin
   begin
     if (ListBox1.Items[i] = strAux) then
       IndPlayList := i;
-    begin
-
-    end;  
   end;
 end;
 
 procedure TForm1.btnMoveBaixoClick(Sender: TObject);
-var posicao: integer;
+var
+posicao: integer;
+strAux: String;
+i: integer;
 begin
-  posicao := ListBox1.ItemIndex; 
+  posicao := ListBox1.ItemIndex;
+  strAux := ListBox1.Items[posicao];
+
   if posicao >= ListBox1.Items.Count -1 then begin
   listbox1.Items.Move(ListBox1.ItemIndex,0);
   posicao := -1;
   end else
   listbox1.Items.Move(ListBox1.ItemIndex,ListBox1.ItemIndex + 1);
   ListBox1.ItemIndex := posicao + 1;
+
+  for i := 0 to ListBox1.Items.Count-1 do
+  begin
+    if (ListBox1.Items[i] = strAux) then
+      IndPlayList := i;
+  end;
+  
 end;
 
 procedure TForm1.ListBox1DragDrop(Sender, Source: TObject; X, Y: Integer);
@@ -328,7 +339,7 @@ begin
 
 end;
 
-procedure TForm1.SpeedButton2Click(Sender: TObject);
+procedure TForm1.btnAddClick(Sender: TObject);
 begin
   if OpenDialog1.Execute then
     begin
@@ -383,6 +394,12 @@ procedure TForm1.ListBox1Enter(Sender: TObject);
 begin
   btnMoveCima.Enabled := true;
   btnMoveBaixo.Enabled := true;
+  btnremove.Enabled := true;
+end;
+
+procedure TForm1.btnRemoveClick(Sender: TObject);
+begin
+  ListBox1.Items.Delete(ListBox1.ItemIndex);
 end;
 
 end.

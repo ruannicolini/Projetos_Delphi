@@ -14224,7 +14224,7 @@ object Form1: TForm1
                 70DE6E956F8DB795B8D5A54DDC5DE59447377D4BF1D65EF3A54CF1FBD7A2B2BD
                 55ACAAD56B28AD650A4549C7895A358568D615A3585FFFD9}
             end
-            object SpeedButton2: TSpeedButton
+            object btnAdd: TSpeedButton
               Left = 202
               Top = 8
               Width = 23
@@ -14237,7 +14237,7 @@ object Form1: TForm1
               Font.Name = 'Baskerville Old Face'
               Font.Style = []
               ParentFont = False
-              OnClick = SpeedButton2Click
+              OnClick = btnAddClick
             end
             object btnTocar: TSpeedButton
               Left = 21
@@ -14250,9 +14250,9 @@ object Form1: TForm1
             end
             object btnMoveCima: TSpeedButton
               Left = 202
-              Top = 32
+              Top = 51
               Width = 23
-              Height = 33
+              Height = 29
               Anchors = [akLeft, akTop, akRight]
               Caption = '/\'
               Enabled = False
@@ -14266,9 +14266,9 @@ object Form1: TForm1
             end
             object btnMoveBaixo: TSpeedButton
               Left = 202
-              Top = 71
+              Top = 83
               Width = 23
-              Height = 33
+              Height = 29
               Anchors = [akLeft, akTop, akRight]
               Caption = '\/'
               Enabled = False
@@ -14279,6 +14279,14 @@ object Form1: TForm1
               Font.Style = []
               ParentFont = False
               OnClick = btnMoveBaixoClick
+            end
+            object btnRemove: TSpeedButton
+              Left = 202
+              Top = 29
+              Width = 23
+              Height = 19
+              Caption = '-'
+              OnClick = btnRemoveClick
             end
             object RichEdit1: TRichEdit
               Left = 34
