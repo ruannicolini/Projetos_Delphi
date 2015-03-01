@@ -43,8 +43,8 @@ uses
     StatusBar1: TStatusBar;
     ListBox1: TListBox;
     btnTocar: TSpeedButton;
-    SpeedButton3: TSpeedButton;
-    SpeedButton4: TSpeedButton;
+    btnMoveCima: TSpeedButton;
+    btnMoveBaixo: TSpeedButton;
     SpeedButton5: TSpeedButton;
     SpeedButton6: TSpeedButton;
     procedure Panel4DblClick(Sender: TObject);
@@ -55,8 +55,8 @@ uses
     procedure FormResize(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnTocarClick(Sender: TObject);
-    procedure SpeedButton3Click(Sender: TObject);
-    procedure SpeedButton4Click(Sender: TObject);
+    procedure btnMoveCimaClick(Sender: TObject);
+    procedure btnMoveBaixoClick(Sender: TObject);
     procedure ListBox1DragDrop(Sender, Source: TObject; X, Y: Integer);
     procedure ListBox1DragOver(Sender, Source: TObject; X, Y: Integer;
       State: TDragState; var Accept: Boolean);
@@ -64,6 +64,7 @@ uses
     procedure SpeedButton6Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure ListBox1Enter(Sender: TObject);
   private
     { Private declarations }
   public
@@ -223,16 +224,26 @@ begin
 
 end;
 
-procedure TForm1.SpeedButton3Click(Sender: TObject);
-var posicao: integer;
+procedure TForm1.btnMoveCimaClick(Sender: TObject);
+var
+posicao: integer;
+strAux: String;
 begin
   posicao := ListBox1.ItemIndex; 
   listbox1.Items.Move(ListBox1.ItemIndex,ListBox1.ItemIndex - 1);
-  if posicao <= 0 then posicao := ListBox1.Items.Count;
-  ListBox1.ItemIndex := posicao - 1;  
+  RichEdit1.lines.Move(ListBox1.ItemIndex,ListBox1.ItemIndex - 1);
+  if posicao <= 0 then
+    posicao := ListBox1.Items.Count;
+  ListBox1.ItemIndex := posicao - 1;
+
+  {strAux := RichEdit1.Lines[posicao];
+  RichEdit1.Lines.mo  }
+
+
+
 end;
 
-procedure TForm1.SpeedButton4Click(Sender: TObject);
+procedure TForm1.btnMoveBaixoClick(Sender: TObject);
 var posicao: integer;
 begin
   posicao := ListBox1.ItemIndex; 
@@ -320,6 +331,10 @@ begin
 end;
 
 procedure TForm1.FormClose(Sender: TObject; var Action: TCloseAction);
+var
+  i: integer;
+  iListB:integer;
+  srtArq: string;
 begin
   AssignFile(arquivo, (extractFilepath(application.exename) + 'IndPlayList.txt') );
   reset(arquivo);
@@ -328,6 +343,36 @@ begin
   WriteLn(arquivo, MediaPlayer1.Position);
   CloseFile(Arquivo);
 
+  AssignFile(arquivo, (extractFilepath(application.exename) + 'test.txt') );
+  Rewrite(arquivo);
+  for iListB := 0 to ListBox1.Items.Count-1 do
+  begin
+    for i := 0 to RichEdit1.Lines.Count-1 do
+    begin
+      if ExtractFileName(RichEdit1.Lines[i]) = ListBox1.Items[iListB] then
+          WriteLn(arquivo, RichEdit1.Lines[i]);
+    end;
+  end;
+  CloseFile(Arquivo);
+  
+  RichEdit1.Lines.Clear;
+  AssignFile(arquivo, (extractFilepath(application.exename) + 'test.txt') );
+  reset(arquivo);
+  While Not (EOF(arquivo)) Do     //Enquanto não for o fim do arquivo faça
+  begin
+        Readln(arquivo, srtArq);
+        RichEdit1.Lines.Add(srtArq);
+  end;
+  CloseFile(Arquivo);
+  RichEdit1.Lines.SaveToFile(extractFilepath(application.exename) + 'teste.txt');
+
+
+end;
+
+procedure TForm1.ListBox1Enter(Sender: TObject);
+begin
+  btnMoveCima.Enabled := true;
+  btnMoveBaixo.Enabled := true;
 end;
 
 end.

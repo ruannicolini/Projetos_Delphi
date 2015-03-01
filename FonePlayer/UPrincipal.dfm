@@ -14248,35 +14248,37 @@ object Form1: TForm1
               Caption = 'Tocar'
               OnClick = btnTocarClick
             end
-            object SpeedButton3: TSpeedButton
+            object btnMoveCima: TSpeedButton
               Left = 202
               Top = 32
               Width = 23
               Height = 33
               Anchors = [akLeft, akTop, akRight]
               Caption = '/\'
+              Enabled = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clBlack
               Font.Height = -15
               Font.Name = 'Baskerville Old Face'
               Font.Style = []
               ParentFont = False
-              OnClick = SpeedButton3Click
+              OnClick = btnMoveCimaClick
             end
-            object SpeedButton4: TSpeedButton
+            object btnMoveBaixo: TSpeedButton
               Left = 202
               Top = 71
               Width = 23
               Height = 33
               Anchors = [akLeft, akTop, akRight]
               Caption = '\/'
+              Enabled = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clBlack
               Font.Height = -15
               Font.Name = 'Baskerville Old Face'
               Font.Style = []
               ParentFont = False
-              OnClick = SpeedButton4Click
+              OnClick = btnMoveBaixoClick
             end
             object RichEdit1: TRichEdit
               Left = 34
@@ -14301,6 +14303,7 @@ object Form1: TForm1
               TabOrder = 1
               OnDragDrop = ListBox1DragDrop
               OnDragOver = ListBox1DragOver
+              OnEnter = ListBox1Enter
             end
           end
         end
