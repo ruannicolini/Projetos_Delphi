@@ -63,6 +63,7 @@ uses
     procedure SpeedButton5Click(Sender: TObject);
     procedure SpeedButton6Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -75,6 +76,7 @@ var
   IndPlayList: Integer;
   posicaoPlayer : Integer;
   status : Boolean;
+  arquivo: TextFile;
 
 implementation
 
@@ -122,7 +124,6 @@ var
 begin
   if Progressbar1.Max <> 0 then
       Progressbar1.Position := mediaplayer1.Position;
-
 
   if (btnTocar.Caption = 'Parar Play List') then
     for i := 0 to ListBox1.Count -1 do
@@ -183,7 +184,6 @@ procedure TForm1.FormShow(Sender: TObject);
 var
   i:integer;
   str:String;
-  arquivo: TextFile;
 begin
       AssignFile(arquivo, (extractFilepath(application.exename) + 'IndPlayList.txt') );
       reset(arquivo);
@@ -317,6 +317,17 @@ begin
       ListBox1.Items.Add(ExtractFileName(OpenDialog1.FileName))
 
     end
+end;
+
+procedure TForm1.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  AssignFile(arquivo, (extractFilepath(application.exename) + 'IndPlayList.txt') );
+  reset(arquivo);
+  Rewrite(Arquivo);
+  WriteLn(arquivo, IntToStr(IndPlayList));
+  WriteLn(arquivo, MediaPlayer1.Position );
+  CloseFile(Arquivo);
+
 end;
 
 end.
