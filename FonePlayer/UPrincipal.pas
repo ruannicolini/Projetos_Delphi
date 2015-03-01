@@ -76,6 +76,7 @@ var
   Form1: TForm1;
   IndPlayList: Integer;
   posicaoPlayer : Integer;
+  posicaoAux : Integer;
   status : Boolean;
   arquivo: TextFile;
 
@@ -154,12 +155,14 @@ begin
           if(IndPlayList = (ListBox1.Count-1)) then
             begin
               IndPlayList := 0;
-              status := true
+              status := true;
+              ListBox1.Selected[IndPlayList] := true
             end
           else
             begin
               IndPlayList := IndPlayList +1;
-              status := true
+              status := true;
+              ListBox1.Selected[IndPlayList] := true
             end
         end
     end;
@@ -194,8 +197,8 @@ begin
         IndPlayList := StrToInt(str);
         Readln(arquivo, posicaoPlayer);
       end;
+      {ListBox1.Selected[IndPlayList] := true; }
       CloseFile(Arquivo);
-
 
       status := false;
 
@@ -228,19 +231,25 @@ procedure TForm1.btnMoveCimaClick(Sender: TObject);
 var
 posicao: integer;
 strAux: String;
+i: integer;
 begin
-  posicao := ListBox1.ItemIndex; 
+  posicao := ListBox1.ItemIndex;
+  strAux := ListBox1.Items[posicao];
+
   listbox1.Items.Move(ListBox1.ItemIndex,ListBox1.ItemIndex - 1);
   RichEdit1.lines.Move(ListBox1.ItemIndex,ListBox1.ItemIndex - 1);
   if posicao <= 0 then
     posicao := ListBox1.Items.Count;
   ListBox1.ItemIndex := posicao - 1;
 
-  {strAux := RichEdit1.Lines[posicao];
-  RichEdit1.Lines.mo  }
+  for i := 0 to ListBox1.Items.Count-1 do
+  begin
+    if (ListBox1.Items[i] = strAux) then
+      IndPlayList := i;
+    begin
 
-
-
+    end;  
+  end;
 end;
 
 procedure TForm1.btnMoveBaixoClick(Sender: TObject);
@@ -343,6 +352,7 @@ begin
   WriteLn(arquivo, MediaPlayer1.Position);
   CloseFile(Arquivo);
 
+  {OBS: Melhorar Isso aqui, ta tenso!}
   AssignFile(arquivo, (extractFilepath(application.exename) + 'test.txt') );
   Rewrite(arquivo);
   for iListB := 0 to ListBox1.Items.Count-1 do
@@ -354,7 +364,7 @@ begin
     end;
   end;
   CloseFile(Arquivo);
-  
+
   RichEdit1.Lines.Clear;
   AssignFile(arquivo, (extractFilepath(application.exename) + 'test.txt') );
   reset(arquivo);
