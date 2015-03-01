@@ -73,6 +73,7 @@ uses
 var
   Form1: TForm1;
   IndPlayList: Integer;
+  posicaoPlayer : Integer;
   status : Boolean;
 
 implementation
@@ -132,6 +133,10 @@ begin
         MediaPlayer1.Open;
         StatusBar1.Panels.Items[0].Text := 'AGORA:   ' + ExtractFileName(MediaPlayer1.FileName);
         ProgressBar1.Min := 0;
+
+        MediaPlayer1.Position := posicaoPlayer;
+        posicaoPlayer := 0;
+
         ProgressBar1.Max := MediaPlayer1.Length;
         ProgressBar1.Position := MediaPlayer1.Position;
         status := false;
@@ -178,10 +183,21 @@ procedure TForm1.FormShow(Sender: TObject);
 var
   i:integer;
   str:String;
+  arquivo: TextFile;
 begin
-      IndPlayList := 0;
+      AssignFile(arquivo, (extractFilepath(application.exename) + 'IndPlayList.txt') );
+      reset(arquivo);
+      While Not (EOF(arquivo)) Do     //Enquanto não for o fim do arquivo faça
+      begin
+        Readln(arquivo, str);
+        IndPlayList := StrToInt(str);
+        Readln(arquivo, posicaoPlayer);
+      end;
+      CloseFile(Arquivo);
+
+
       status := false;
-      
+
       RichEdit1.Lines.LoadFromFile(extractFilepath(application.exename) + 'teste.txt');
       StatusBar1.Panels.Items[0].Text := 'Arquivo test.txt';
 
@@ -196,7 +212,6 @@ end;
 
 procedure TForm1.btnTocarClick(Sender: TObject);
 begin
-  IndPlayList := 0;
   if (btnTocar.Caption = 'Parar Play List') then
     btnTocar.Caption := 'Tocar'
   else
@@ -205,6 +220,7 @@ begin
     status := true;
     Timer1.Enabled := true;
   end
+
 end;
 
 procedure TForm1.SpeedButton3Click(Sender: TObject);
