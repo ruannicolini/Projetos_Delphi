@@ -191,19 +191,6 @@ var
   i:integer;
   str:String;
 begin
-      AssignFile(arquivo, (extractFilepath(application.exename) + 'IndPlayList.txt') );
-      reset(arquivo);
-      While Not (EOF(arquivo)) Do     //Enquanto não for o fim do arquivo faça
-      begin
-        Readln(arquivo, str);
-        IndPlayList := StrToInt(str);
-        Readln(arquivo, posicaoPlayer);
-      end;
-      {ListBox1.Selected[IndPlayList] := true; }
-      CloseFile(Arquivo);
-
-      status := false;
-
       RichEdit1.Lines.LoadFromFile(extractFilepath(application.exename) + 'teste.txt');
       StatusBar1.Panels.Items[0].Text := 'Arquivo test.txt';
 
@@ -212,6 +199,32 @@ begin
         str := RichEdit1.Lines[i];
         ListBox1.Items.Add(ExtractFileName(str));
       end;
+
+
+      if (fileexists(extractFilepath(application.exename) + 'IndPlayList.txt')) then
+      begin
+        AssignFile(arquivo, (extractFilepath(application.exename) + 'IndPlayList.txt') );
+        reset(arquivo);
+        While Not (EOF(arquivo)) Do     //Enquanto não for o fim do arquivo faça
+        begin
+            Readln(arquivo, str);
+            for i := 0 to ListBox1.Items.Count-1 do
+            begin
+              if (ListBox1.Items[i] = str) then
+                IndPlayList := i;
+            end;
+            
+            Readln(arquivo, posicaoPlayer);
+        end;
+        {ListBox1.Selected[IndPlayList] := true; }
+        CloseFile(Arquivo);
+        status := false;
+      end
+        else
+        begin
+          IndPlayList := 0;
+          posicaoPlayer := 0;
+        end;
 
 
 end;
@@ -356,12 +369,27 @@ var
   iListB:integer;
   srtArq: string;
 begin
-  AssignFile(arquivo, (extractFilepath(application.exename) + 'IndPlayList.txt') );
-  reset(arquivo);
-  Rewrite(Arquivo);
-  WriteLn(arquivo, IntToStr(IndPlayList));
-  WriteLn(arquivo, MediaPlayer1.Position);
-  CloseFile(Arquivo);
+  if (fileexists(extractFilepath(application.exename) + 'IndPlayList.txt')) then
+  begin
+      {DeleteFile(extractFilepath(application.exename) + 'IndPlayList.txt');}
+      Windows.DeleteFile(PChar(extractFilepath(application.exename) + 'IndPlayList.txt'));
+  end;
+  CloseFile(arquivo);
+
+  if(MediaPlayer1.Position <> ProgressBar1.Max)then
+  begin
+      
+      AssignFile(arquivo, (extractFilepath(application.exename) + 'IndPlayList.txt') );
+      {showmessage(extractFilepath(application.exename) + 'IndPlayList.txt');}
+      
+      rewrite(Arquivo);
+      
+      
+      {WriteLn(arquivo, IntToStr(IndPlayList));}
+      WriteLn(arquivo, ListBox1.Items[IndPlayList]);
+      WriteLn(arquivo, MediaPlayer1.Position);
+      CloseFile(Arquivo);
+  end;
 
   {OBS: Melhorar Isso aqui, ta tenso!}
   AssignFile(arquivo, (extractFilepath(application.exename) + 'test.txt') );
@@ -399,7 +427,7 @@ end;
 
 procedure TForm1.btnRemoveClick(Sender: TObject);
 begin
-  ListBox1.Items.Delete(ListBox1.ItemIndex);
+  ListBox1.DeleteSelected;
 end;
 
 end.
