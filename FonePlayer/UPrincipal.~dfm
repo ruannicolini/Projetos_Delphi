@@ -14331,7 +14331,7 @@ object Form1: TForm1
             817
             476)
           object SpeedButton5: TSpeedButton
-            Left = 395
+            Left = 380
             Top = 382
             Width = 26
             Height = 22
@@ -14340,13 +14340,28 @@ object Form1: TForm1
             OnClick = SpeedButton5Click
           end
           object SpeedButton6: TSpeedButton
-            Left = 421
+            Left = 406
             Top = 382
             Width = 26
             Height = 22
             Anchors = []
             Caption = '<'
             OnClick = SpeedButton6Click
+          end
+          object btnPlayPause: TSpeedButton
+            Left = 331
+            Top = 355
+            Width = 49
+            Height = 49
+            Caption = 'Play'
+            OnClick = btnPlayPauseClick
+          end
+          object SpeedButton2: TSpeedButton
+            Left = 432
+            Top = 355
+            Width = 49
+            Height = 49
+            Caption = 'Stop'
           end
           object MediaPlayer1: TMediaPlayer
             Left = 308

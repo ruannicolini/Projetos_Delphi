@@ -48,6 +48,8 @@ uses
     SpeedButton5: TSpeedButton;
     SpeedButton6: TSpeedButton;
     btnRemove: TSpeedButton;
+    btnPlayPause: TSpeedButton;
+    SpeedButton2: TSpeedButton;
     procedure Panel4DblClick(Sender: TObject);
     procedure Panel10DblClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -67,6 +69,7 @@ uses
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ListBox1Enter(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
+    procedure btnPlayPauseClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -374,7 +377,7 @@ begin
       {DeleteFile(extractFilepath(application.exename) + 'IndPlayList.txt');}
       Windows.DeleteFile(PChar(extractFilepath(application.exename) + 'IndPlayList.txt'));
   end;
-  CloseFile(arquivo);
+
 
   if(MediaPlayer1.Position <> ProgressBar1.Max)then
   begin
@@ -428,6 +431,21 @@ end;
 procedure TForm1.btnRemoveClick(Sender: TObject);
 begin
   ListBox1.DeleteSelected;
+end;
+
+procedure TForm1.btnPlayPauseClick(Sender: TObject);
+begin
+  if (btnPlayPause.Caption = 'Play') then
+  begin
+        MediaPlayer1.Play;
+        btnPlayPause.Caption := 'Pause';
+  end else
+    if(btnPlayPause.Caption = 'Pause') then
+      begin
+        MediaPlayer1.Pause;
+        btnPlayPause.Caption := 'Play';
+      end;
+
 end;
 
 end.
