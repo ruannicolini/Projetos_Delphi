@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 255
-  Top = 128
+  Left = 191
+  Top = 127
   BorderStyle = bsSingle
   ClientHeight = 577
   ClientWidth = 1070
@@ -14350,17 +14350,19 @@ object Form1: TForm1
           end
           object btnPlayPause: TSpeedButton
             Left = 331
-            Top = 355
+            Top = 382
             Width = 49
-            Height = 49
+            Height = 22
+            Anchors = []
             Caption = 'Play'
             OnClick = btnPlayPauseClick
           end
           object SpeedButton2: TSpeedButton
             Left = 432
-            Top = 355
+            Top = 382
             Width = 49
-            Height = 49
+            Height = 22
+            Anchors = []
             Caption = 'Stop'
           end
           object MediaPlayer1: TMediaPlayer
@@ -14391,6 +14393,16 @@ object Form1: TForm1
               item
                 Width = 50
               end>
+          end
+          object chkRA: TCheckBox
+            Left = 1
+            Top = 428
+            Width = 153
+            Height = 17
+            Anchors = [akLeft, akBottom]
+            Caption = 'Reprodu'#231#227'o Aleat'#243'ria'
+            TabOrder = 3
+            Visible = False
           end
         end
       end

@@ -10,7 +10,8 @@ uses
   MPlayer,
   Buttons,
   ImgList,
-  OleCtrls, SHDocVw;
+  OleCtrls, SHDocVw,
+  ToolWin;
 
   type
   TForm1 = class(TForm)
@@ -50,6 +51,7 @@ uses
     btnRemove: TSpeedButton;
     btnPlayPause: TSpeedButton;
     SpeedButton2: TSpeedButton;
+    chkRA: TCheckBox;
     procedure Panel4DblClick(Sender: TObject);
     procedure Panel10DblClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -167,8 +169,12 @@ begin
             begin
               IndPlayList := IndPlayList +1;
               status := true;
-              ListBox1.Selected[IndPlayList] := true
-            end
+              ListBox1.Selected[IndPlayList] := true;
+            end;
+            if(chkRA.Checked = true) then
+            begin
+              IndPlayList := Random(ListBox1.Items.Count -1);
+            end;
         end
     end;
 
@@ -235,12 +241,17 @@ end;
 procedure TForm1.btnTocarClick(Sender: TObject);
 begin
   if (btnTocar.Caption = 'Parar Play List') then
-    btnTocar.Caption := 'Tocar'
-  else
+  begin
+    btnTocar.Caption := 'Tocar';
+    chkRA.Visible := false;
+    MediaPlayer1.Stop;
+  end else
     begin
     btnTocar.Caption := 'Parar Play List';
     status := true;
     Timer1.Enabled := true;
+    chkRA.Visible := true;
+    chkRA.Checked:= false;
   end
 
 end;
@@ -335,7 +346,11 @@ if (btnTocar.Caption = 'Parar Play List') then
       begin
         IndPlayList := IndPlayList +1;
         status := true
-      end
+      end;
+      if(chkRA.Checked = true) then
+      begin
+          IndPlayList := Random(100) mod (ListBox1.Items.Count-1);
+      end;
   end
 
 end;
@@ -351,7 +366,11 @@ begin
       begin
         IndPlayList := IndPlayList -1;
         status := true
-      end
+      end;
+     if(chkRA.Checked = true) then
+      begin
+          IndPlayList := Random(100) mod (ListBox1.Items.Count-1);
+      end;
 
 end;
 
