@@ -1,0 +1,96 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+
+html {
+  background: #333334;
+}
+
+body {
+  width: 18vw;
+  height: 18vw;
+  background: #E94B40;
+  border-radius: 100%;
+  border: 4vw solid #E94B40;
+  border-bottom-color: #333334;
+  border-left-color: #333334;
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+      -ms-transform: translate(-50%, -50%) rotate(-45deg);
+          transform: translate(-50%, -50%) rotate(-45deg);
+  -webkit-animation: rotate 6s linear infinite;
+          animation: rotate 6s linear infinite;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  box-shadow: 0 0 0 1.3vw #333334;
+}
+body:before {
+  content: '';
+  display: block;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%) rotate(0deg);
+      -ms-transform: translate(-50%, -50%) rotate(0deg);
+          transform: translate(-50%, -50%) rotate(0deg);
+  -webkit-animation: rotate 4s linear infinite reverse;
+          animation: rotate 4s linear infinite reverse;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  box-shadow: 0 0 0 1.3vw #333334;
+  width: 12vw;
+  height: 12vw;
+  background: #000;
+  border-radius: 100%;
+  background: #333334;
+  border: 4vw solid #333334;
+  border-bottom-color: #E94B40;
+  border-left-color: #E94B40;
+}
+body:after {
+  content: '';
+  display: block;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%) rotate(-180deg);
+      -ms-transform: translate(-50%, -50%) rotate(-180deg);
+          transform: translate(-50%, -50%) rotate(-180deg);
+  -webkit-animation: rotate 2s linear infinite reverse;
+          animation: rotate 2s linear infinite reverse;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  box-shadow: 0 0 0 1.3vw #333334;
+  width: 6.5vw;
+  height: 6.5vw;
+  border-radius: 100%;
+  background: -webkit-radial-gradient(#e94b40 35%, #333334 35%);
+  background: radial-gradient(#e94b40 35%, #333334 35%);
+  border: 3vw solid #333334;
+  border-bottom-color: #E94B40;
+  border-left-color: #E94B40;
+}
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  from {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

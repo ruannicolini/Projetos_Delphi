@@ -34,10 +34,6 @@ uses
     Timer1: TTimer;
     ImageList1: TImageList;
     Image4: TImage;
-    Panel1: TPanel;
-    Button1: TButton;
-    SpeedButton1: TSpeedButton;
-    Panel5: TPanel;
     RichEdit1: TRichEdit;
     btnAdd: TSpeedButton;
     ProgressBar1: TProgressBar;
@@ -50,13 +46,13 @@ uses
     SpeedButton6: TSpeedButton;
     btnRemove: TSpeedButton;
     btnPlayPause: TSpeedButton;
-    SpeedButton2: TSpeedButton;
+    btnStop: TSpeedButton;
     chkRA: TCheckBox;
+    btnPause: TSpeedButton;
     procedure Panel4DblClick(Sender: TObject);
     procedure Panel10DblClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
-    procedure SpeedButton1Click(Sender: TObject);
+    procedure btnPauseClick(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnTocarClick(Sender: TObject);
@@ -72,6 +68,7 @@ uses
     procedure ListBox1Enter(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btnPlayPauseClick(Sender: TObject);
+    procedure btnStopClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -134,10 +131,10 @@ begin
   if Progressbar1.Max <> 0 then
       Progressbar1.Position := mediaplayer1.Position;
 
-  if (btnTocar.Caption = 'Parar Play List') then
+  if ((btnTocar.Caption = 'Parar Play List') and(status = true)) then
     for i := 0 to ListBox1.Count -1 do
     begin
-      if ((ExtractFileName(RichEdit1.Lines[i]) = ListBox1.Items[IndPlayList])and(status = true)) then
+      if ((ExtractFileName(RichEdit1.Lines[i]) = ListBox1.Items[IndPlayList])) then
       begin
         MediaPlayer1.FileName := RichEdit1.Lines[i];
         MediaPlayer1.Open;
@@ -152,7 +149,8 @@ begin
         status := false;
         Timer1.Enabled := true;
         MediaPlayer1.Play;
-      end
+      end;
+      status := false;
     end;
 
   if (Progressbar1.Position = Progressbar1.Max) then
@@ -180,14 +178,10 @@ begin
 
 end;
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TForm1.btnPauseClick(Sender: TObject);
 begin
-  PageControl1.ActivePageIndex := 1;
-end;
-
-procedure TForm1.SpeedButton1Click(Sender: TObject);
-begin
-  PageControl1.ActivePageIndex := 0;
+  {PageControl1.ActivePageIndex := 0; }
+  MediaPlayer1.Pause;
 end;
 
 procedure TForm1.FormResize(Sender: TObject);
@@ -200,13 +194,17 @@ var
   i:integer;
   str:String;
 begin
-      RichEdit1.Lines.LoadFromFile(extractFilepath(application.exename) + 'teste.txt');
-      StatusBar1.Panels.Items[0].Text := 'Arquivo test.txt';
-
-      for i := 0 to RichEdit1.Lines.Count -1 do
+      if (fileexists(extractFilepath(application.exename) + 'test.txt')) then
       begin
-        str := RichEdit1.Lines[i];
-        ListBox1.Items.Add(ExtractFileName(str));
+        RichEdit1.Lines.LoadFromFile(extractFilepath(application.exename) + 'test.txt');
+        StatusBar1.Panels.Items[0].Text := 'Arquivo test.txt';
+        btnTocar.Enabled := true;
+
+        for i := 0 to RichEdit1.Lines.Count -1 do
+        begin
+          str := RichEdit1.Lines[i];
+          ListBox1.Items.Add(ExtractFileName(str));
+        end;
       end;
 
 
@@ -435,7 +433,7 @@ begin
         RichEdit1.Lines.Add(srtArq);
   end;
   CloseFile(Arquivo);
-  RichEdit1.Lines.SaveToFile(extractFilepath(application.exename) + 'teste.txt');
+  RichEdit1.Lines.SaveToFile(extractFilepath(application.exename) + 'test.txt');
 
 
 end;
@@ -445,26 +443,46 @@ begin
   btnMoveCima.Enabled := true;
   btnMoveBaixo.Enabled := true;
   btnremove.Enabled := true;
+  btnRemove := true;
 end;
 
 procedure TForm1.btnRemoveClick(Sender: TObject);
+var
+  i:integer;
 begin
+  for i := 0 to RichEdit1.Lines.Count -1 do
+    begin
+      if ((ExtractFileName(RichEdit1.Lines[i]) = ListBox1.Items[ListBox1.ItemIndex])) then
+      begin
+        RichEdit1.Lines.Delete(i);
+      end;
+      status := false;
+    end;
   ListBox1.DeleteSelected;
+
 end;
 
 procedure TForm1.btnPlayPauseClick(Sender: TObject);
 begin
+  MediaPlayer1.Play;
+{
   if (btnPlayPause.Caption = 'Play') then
   begin
         MediaPlayer1.Play;
-        btnPlayPause.Caption := 'Pause';
+        btnPlayPause.Caption := 'Pause'; 
   end else
     if(btnPlayPause.Caption = 'Pause') then
       begin
         MediaPlayer1.Pause;
         btnPlayPause.Caption := 'Play';
       end;
+}
 
+end;
+
+procedure TForm1.btnStopClick(Sender: TObject);
+begin
+  MediaPlayer1.Stop;  
 end;
 
 end.

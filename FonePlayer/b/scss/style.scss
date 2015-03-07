@@ -1,0 +1,89 @@
+@import "compass/css3";
+
+$background: #333334;
+$color-1: #E94B40;
+
+$time: 2s;
+$radius: 100%;
+$shadow-thickness: 1.3; // from 0 to - 2.5 (max-value)
+$dot: 35%; // center dot size
+
+@mixin centerer{
+  top: 50%;
+  left: 50%;
+  position: absolute;
+}
+
+html, body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+
+
+html{
+  background: $background;
+}
+
+
+body{
+  width: 18vw;
+  height: 18vw;
+  background: $color-1;
+  border-radius: $radius;
+  border: 4vw solid $color-1;
+  border-bottom-color: $background;
+  border-left-color: $background;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  animation: rotate $time*3 linear infinite;
+  @include centerer;
+  box-shadow: 0 0 0 #{$shadow-thickness}vw $background;
+  &:before{
+    content: '';
+    display: block;
+    position: absolute;
+    transform: translate(-50%, -50%) rotate(0deg);
+    animation: rotate $time*2 linear infinite reverse;
+    @include centerer;
+    box-shadow: 0 0 0 #{$shadow-thickness}vw $background;
+    width: 12vw;
+    height: 12vw;
+    background: #000;
+    border-radius: $radius;
+    background: $background;
+    border: 4vw solid $background;
+    border-bottom-color: $color-1;
+    border-left-color: $color-1;
+  }
+
+  &:after{
+    content: '';
+    display: block;
+    position: absolute;
+    transform: translate(-50%, -50%) rotate(-180deg);
+    animation: rotate $time linear infinite reverse;
+
+    @include centerer;
+    box-shadow: 0 0 0 #{$shadow-thickness}vw $background;
+    width: 6.5vw;
+    height: 6.5vw;
+    border-radius: $radius;
+    background: radial-gradient($color-1 $dot, $background $dot); 
+    border: 3vw solid $background;
+    border-bottom-color: $color-1;
+    border-left-color: $color-1;
+  }
+}
+
+@keyframes rotate{
+  from{
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to{
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
