@@ -7407,22 +7407,22 @@ object Form1: TForm1
     TabOrder = 1
   end
   object Panel3: TPanel
-    Left = 1
-    Top = 26
-    Width = 230
-    Height = 515
+    Left = 10
+    Top = 34
+    Width = 232
+    Height = 496
     Align = alCustom
     Anchors = [akLeft, akTop, akBottom]
-    Color = clWhite
-    ParentBackground = True
+    Color = clSilver
+    ParentBackground = False
     TabOrder = 2
     Visible = False
     OnMouseDown = Panel3MouseDown
     object Panel7: TPanel
       Left = 1
       Top = 1
-      Width = 228
-      Height = 25
+      Width = 230
+      Height = 26
       Align = alTop
       BevelOuter = bvNone
       Caption = 'Play List'
@@ -7431,22 +7431,25 @@ object Form1: TForm1
       OnMouseDown = Panel7MouseDown
     end
     object Panel11: TPanel
-      Left = 1
+      Left = 0
       Top = 26
-      Width = 228
-      Height = 488
-      Align = alClient
+      Width = 229
+      Height = 472
+      Align = alCustom
+      Anchors = [akLeft, akTop, akRight, akBottom]
       Color = clWhite
+      ParentBackground = False
       TabOrder = 1
       DesignSize = (
-        228
-        488)
+        229
+        472)
       object Image3: TImage
-        Left = 1
+        Left = -4
         Top = 1
-        Width = 226
-        Height = 486
-        Align = alClient
+        Width = 238
+        Height = 470
+        Align = alCustom
+        Anchors = [akLeft, akTop, akBottom]
         Picture.Data = {
           0A544A504547496D616765E9720300FFD8FFE000104A46494600010201004800
           480000FFE1074F4578696600004D4D002A000000080007011200030000000100
@@ -14517,7 +14520,7 @@ object Form1: TForm1
       object btnAdd: TSpeedButton
         Left = 206
         Top = 8
-        Width = 19
+        Width = 20
         Height = 19
         Anchors = [akLeft, akTop, akRight]
         Caption = '+'
@@ -14531,9 +14534,9 @@ object Form1: TForm1
       end
       object btnTocar: TSpeedButton
         Left = 21
-        Top = 461
-        Width = 185
-        Height = 26
+        Top = 442
+        Width = 182
+        Height = 25
         Anchors = [akLeft, akBottom]
         Caption = 'Tocar'
         Enabled = False
@@ -14542,7 +14545,7 @@ object Form1: TForm1
       object btnMoveCima: TSpeedButton
         Left = 206
         Top = 51
-        Width = 19
+        Width = 20
         Height = 23
         Anchors = [akLeft, akTop, akRight]
         Caption = '/\'
@@ -14558,7 +14561,7 @@ object Form1: TForm1
       object btnMoveBaixo: TSpeedButton
         Left = 206
         Top = 77
-        Width = 19
+        Width = 20
         Height = 21
         Anchors = [akLeft, akTop, akRight]
         Caption = '\/'
@@ -14583,18 +14586,18 @@ object Form1: TForm1
       object RichEdit1: TRichEdit
         Left = 40
         Top = 272
-        Width = 145
-        Height = 180
+        Width = 146
+        Height = 164
         Anchors = [akLeft, akTop, akRight, akBottom]
         Color = clWhite
         TabOrder = 0
         WordWrap = False
       end
       object ListBox1: TListBox
-        Left = 21
+        Left = 20
         Top = 8
-        Width = 182
-        Height = 448
+        Width = 183
+        Height = 431
         Anchors = [akLeft, akTop, akRight, akBottom]
         ItemHeight = 13
         ParentShowHint = False
