@@ -72,6 +72,16 @@ uses
     procedure btnStopClick(Sender: TObject);
     procedure Panel3MouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure Panel4MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Panel3MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Image3MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Panel7MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure btnTocarMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
   private
     { Private declarations }
   public
@@ -494,6 +504,36 @@ procedure TForm1.Panel3MouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   Panel3.Visible := false;
+end;
+
+procedure TForm1.Panel4MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  panel3.Visible := true;
+end;
+
+procedure TForm1.Panel3MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  panel3.Visible := false;
+end;
+
+procedure TForm1.Image3MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  panel3.Visible := false;
+end;
+
+procedure TForm1.Panel7MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  panel3.Visible := false;
+end;
+
+procedure TForm1.btnTocarMouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  panel3.Visible := false;
 end;
 
 end.

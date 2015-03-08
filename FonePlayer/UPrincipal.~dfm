@@ -2,7 +2,7 @@ object Form1: TForm1
   Left = 191
   Top = 118
   BorderStyle = bsSingle
-  ClientHeight = 577
+  ClientHeight = 580
   ClientWidth = 1070
   Color = clSilver
   Font.Charset = DEFAULT_CHARSET
@@ -17,14 +17,14 @@ object Form1: TForm1
   OnShow = FormShow
   DesignSize = (
     1070
-    577)
+    580)
   PixelsPerInch = 96
   TextHeight = 13
   object Image4: TImage
     Left = 0
     Top = 0
     Width = 1070
-    Height = 577
+    Height = 580
     Align = alClient
     Picture.Data = {
       0A544A504547496D616765E9720300FFD8FFE000104A46494600010201004800
@@ -7093,11 +7093,12 @@ object Form1: TForm1
       55ACAAD56B28AD650A4549C7895A358568D615A3585FFFD9}
   end
   object PageControl1: TPageControl
-    Left = 230
-    Top = -1
-    Width = 838
-    Height = 560
+    Left = 1
+    Top = 0
+    Width = 1070
+    Height = 571
     ActivePage = TabSheet1
+    Align = alCustom
     Anchors = [akLeft, akTop, akRight, akBottom]
     Font.Charset = ANSI_CHARSET
     Font.Color = clBlack
@@ -7109,13 +7110,13 @@ object Form1: TForm1
     object TabSheet1: TTabSheet
       Caption = 'M'#250'sica'
       DesignSize = (
-        830
-        528)
+        1062
+        539)
       object Panel2: TPanel
         Left = -1
         Top = 0
-        Width = 829
-        Height = 532
+        Width = 1061
+        Height = 543
         Anchors = [akLeft, akTop, akRight, akBottom]
         Color = clSilver
         ParentBackground = False
@@ -7123,8 +7124,8 @@ object Form1: TForm1
         object Panel4: TPanel
           Left = 6
           Top = 6
-          Width = 818
-          Height = 517
+          Width = 1050
+          Height = 528
           Align = alCustom
           Anchors = [akLeft, akTop, akRight, akBottom]
           Caption = 'Clique Aqui para Abrir um Arquivo de m'#250'sica'
@@ -7132,12 +7133,13 @@ object Form1: TForm1
           ParentBackground = False
           TabOrder = 0
           OnDblClick = Panel4DblClick
+          OnMouseDown = Panel4MouseDown
           DesignSize = (
-            818
-            517)
+            1050
+            528)
           object SpeedButton5: TSpeedButton
-            Left = 344
-            Top = 445
+            Left = 447
+            Top = 455
             Width = 37
             Height = 30
             Anchors = []
@@ -7171,8 +7173,8 @@ object Form1: TForm1
             OnClick = SpeedButton5Click
           end
           object SpeedButton6: TSpeedButton
-            Left = 433
-            Top = 445
+            Left = 561
+            Top = 455
             Width = 35
             Height = 30
             Anchors = []
@@ -7206,8 +7208,8 @@ object Form1: TForm1
             OnClick = SpeedButton6Click
           end
           object btnPlayPause: TSpeedButton
-            Left = 379
-            Top = 445
+            Left = 494
+            Top = 455
             Width = 54
             Height = 30
             Anchors = []
@@ -7241,8 +7243,8 @@ object Form1: TForm1
             OnClick = btnPlayPauseClick
           end
           object btnStop: TSpeedButton
-            Left = 466
-            Top = 445
+            Left = 603
+            Top = 455
             Width = 37
             Height = 30
             Anchors = []
@@ -7276,8 +7278,8 @@ object Form1: TForm1
             OnClick = btnStopClick
           end
           object btnPause: TSpeedButton
-            Left = 308
-            Top = 445
+            Left = 401
+            Top = 455
             Width = 38
             Height = 30
             Anchors = []
@@ -7311,8 +7313,8 @@ object Form1: TForm1
             OnClick = btnPauseClick
           end
           object MediaPlayer1: TMediaPlayer
-            Left = 308
-            Top = 384
+            Left = 423
+            Top = 392
             Width = 197
             Height = 25
             ColoredButtons = []
@@ -7324,16 +7326,16 @@ object Form1: TForm1
           end
           object ProgressBar1: TProgressBar
             Left = 1
-            Top = 486
-            Width = 816
+            Top = 497
+            Width = 1048
             Height = 11
             Align = alBottom
             TabOrder = 1
           end
           object StatusBar1: TStatusBar
             Left = 1
-            Top = 497
-            Width = 816
+            Top = 508
+            Width = 1048
             Height = 19
             Panels = <
               item
@@ -7342,7 +7344,7 @@ object Form1: TForm1
           end
           object chkRA: TCheckBox
             Left = 1
-            Top = 469
+            Top = 480
             Width = 153
             Height = 17
             Anchors = [akLeft, akBottom]
@@ -7359,8 +7361,8 @@ object Form1: TForm1
       object Panel9: TPanel
         Left = 0
         Top = 0
-        Width = 828
-        Height = 528
+        Width = 1060
+        Height = 539
         Align = alCustom
         Anchors = [akLeft, akTop, akRight, akBottom]
         Color = clSilver
@@ -7369,8 +7371,8 @@ object Form1: TForm1
         object Panel10: TPanel
           Left = 6
           Top = 6
-          Width = 818
-          Height = 517
+          Width = 1050
+          Height = 528
           Align = alCustom
           Anchors = [akLeft, akTop, akRight, akBottom]
           Caption = 'Clique Aqui para Abrir um Arquivo de V'#237'deo'
@@ -7379,11 +7381,11 @@ object Form1: TForm1
           TabOrder = 0
           OnDblClick = Panel10DblClick
           DesignSize = (
-            818
-            517)
+            1050
+            528)
           object MediaPlayer2: TMediaPlayer
-            Left = 321
-            Top = 467
+            Left = 411
+            Top = 477
             Width = -6
             Height = 25
             ColoredButtons = []
@@ -7397,9 +7399,9 @@ object Form1: TForm1
     end
   end
   object Panel6: TPanel
-    Left = 0
-    Top = 560
-    Width = 1070
+    Left = -3
+    Top = 563
+    Width = 1083
     Height = 17
     Anchors = [akLeft, akRight, akBottom]
     TabOrder = 1
@@ -7408,14 +7410,14 @@ object Form1: TForm1
     Left = 1
     Top = 24
     Width = 230
-    Height = 520
+    Height = 523
     Align = alCustom
     Anchors = [akLeft, akTop, akBottom]
     Color = clWhite
     ParentBackground = True
     TabOrder = 2
     Visible = False
-    OnMouseUp = Panel3MouseUp
+    OnMouseDown = Panel3MouseDown
     object Panel7: TPanel
       Left = 1
       Top = 1
@@ -7426,23 +7428,24 @@ object Form1: TForm1
       Caption = 'Play List'
       ParentBackground = False
       TabOrder = 0
+      OnMouseDown = Panel7MouseDown
     end
     object Panel11: TPanel
       Left = 1
       Top = 26
       Width = 228
-      Height = 493
+      Height = 496
       Align = alClient
       Color = clWhite
       TabOrder = 1
       DesignSize = (
         228
-        493)
+        496)
       object Image3: TImage
         Left = 1
         Top = 1
         Width = 226
-        Height = 491
+        Height = 494
         Align = alClient
         Picture.Data = {
           0A544A504547496D616765E9720300FFD8FFE000104A46494600010201004800
@@ -14509,6 +14512,7 @@ object Form1: TForm1
           A854C01B2B2082C80D0159E25310A42CB0DA0B2CBA615A9F4C695680CEE6E952
           70DE6E956F8DB795B8D5A54DDC5DE59447377D4BF1D65EF3A54CF1FBD7A2B2BD
           55ACAAD56B28AD650A4549C7895A358568D615A3585FFFD9}
+        OnMouseDown = Image3MouseDown
       end
       object btnAdd: TSpeedButton
         Left = 206
@@ -14527,13 +14531,14 @@ object Form1: TForm1
       end
       object btnTocar: TSpeedButton
         Left = 21
-        Top = 466
+        Top = 469
         Width = 185
         Height = 26
         Anchors = [akLeft, akBottom]
         Caption = 'Tocar'
         Enabled = False
         OnClick = btnTocarClick
+        OnMouseDown = btnTocarMouseDown
       end
       object btnMoveCima: TSpeedButton
         Left = 206
@@ -14580,7 +14585,7 @@ object Form1: TForm1
         Left = 22
         Top = 272
         Width = 180
-        Height = 185
+        Height = 188
         Anchors = [akLeft, akTop, akRight, akBottom]
         Color = clWhite
         TabOrder = 0
@@ -14590,7 +14595,7 @@ object Form1: TForm1
         Left = 21
         Top = 8
         Width = 182
-        Height = 237
+        Height = 240
         Anchors = [akLeft, akTop, akRight, akBottom]
         ItemHeight = 13
         ParentShowHint = False
@@ -14603,12 +14608,18 @@ object Form1: TForm1
     end
   end
   object Panel1: TPanel
-    Left = 0
+    Left = 2
     Top = 0
-    Width = 1073
-    Height = 24
+    Width = 1067
+    Height = 26
     Anchors = [akLeft, akTop, akRight]
-    Caption = 'Panel1'
+    Caption = 'Fone Player'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clHotLight
+    Font.Height = -20
+    Font.Name = 'Lindsey'
+    Font.Style = [fsBold]
+    ParentFont = False
     TabOrder = 3
   end
   object XPManifest1: TXPManifest
