@@ -80,6 +80,7 @@ uses
       Shift: TShiftState; X, Y: Integer);
     procedure Panel7MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure ListBox1DblClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -526,6 +527,19 @@ procedure TForm1.Panel7MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   panel3.Visible := false;
+end;
+
+procedure TForm1.ListBox1DblClick(Sender: TObject);
+begin
+  if(listbox1.itemindex <> -1) then
+  begin
+    IndPlayList := listbox1.itemindex;
+    btnTocar.Caption := 'Parar Play List';
+    status := true;
+    Timer1.Enabled := true;
+    chkRA.Visible := true;
+    chkRA.Checked:= false;
+  end;
 end;
 
 end.

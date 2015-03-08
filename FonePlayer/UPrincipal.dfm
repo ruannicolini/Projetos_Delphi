@@ -7173,7 +7173,7 @@ object Form1: TForm1
             OnClick = SpeedButton5Click
           end
           object SpeedButton6: TSpeedButton
-            Left = 561
+            Left = 558
             Top = 455
             Width = 35
             Height = 30
@@ -7243,7 +7243,7 @@ object Form1: TForm1
             OnClick = btnPlayPauseClick
           end
           object btnStop: TSpeedButton
-            Left = 603
+            Left = 600
             Top = 455
             Width = 37
             Height = 30
@@ -7278,7 +7278,7 @@ object Form1: TForm1
             OnClick = btnStopClick
           end
           object btnPause: TSpeedButton
-            Left = 401
+            Left = 402
             Top = 455
             Width = 38
             Height = 30
@@ -14600,6 +14600,7 @@ object Form1: TForm1
         ParentShowHint = False
         ShowHint = False
         TabOrder = 1
+        OnDblClick = ListBox1DblClick
         OnDragDrop = ListBox1DragDrop
         OnDragOver = ListBox1DragOver
         OnEnter = ListBox1Enter
