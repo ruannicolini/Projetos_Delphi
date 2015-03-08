@@ -80,8 +80,6 @@ uses
       Shift: TShiftState; X, Y: Integer);
     procedure Panel7MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
-    procedure btnTocarMouseDown(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
   private
     { Private declarations }
   public
@@ -525,12 +523,6 @@ begin
 end;
 
 procedure TForm1.Panel7MouseDown(Sender: TObject; Button: TMouseButton;
-  Shift: TShiftState; X, Y: Integer);
-begin
-  panel3.Visible := false;
-end;
-
-procedure TForm1.btnTocarMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   panel3.Visible := false;

@@ -7408,9 +7408,9 @@ object Form1: TForm1
   end
   object Panel3: TPanel
     Left = 1
-    Top = 24
+    Top = 26
     Width = 230
-    Height = 518
+    Height = 515
     Align = alCustom
     Anchors = [akLeft, akTop, akBottom]
     Color = clWhite
@@ -7434,18 +7434,18 @@ object Form1: TForm1
       Left = 1
       Top = 26
       Width = 228
-      Height = 491
+      Height = 488
       Align = alClient
       Color = clWhite
       TabOrder = 1
       DesignSize = (
         228
-        491)
+        488)
       object Image3: TImage
         Left = 1
         Top = 1
         Width = 226
-        Height = 489
+        Height = 486
         Align = alClient
         Picture.Data = {
           0A544A504547496D616765E9720300FFD8FFE000104A46494600010201004800
@@ -14531,14 +14531,13 @@ object Form1: TForm1
       end
       object btnTocar: TSpeedButton
         Left = 21
-        Top = 464
+        Top = 461
         Width = 185
         Height = 26
         Anchors = [akLeft, akBottom]
         Caption = 'Tocar'
         Enabled = False
         OnClick = btnTocarClick
-        OnMouseDown = btnTocarMouseDown
       end
       object btnMoveCima: TSpeedButton
         Left = 206
@@ -14582,10 +14581,10 @@ object Form1: TForm1
         OnClick = btnRemoveClick
       end
       object RichEdit1: TRichEdit
-        Left = 22
+        Left = 40
         Top = 272
-        Width = 180
-        Height = 183
+        Width = 145
+        Height = 180
         Anchors = [akLeft, akTop, akRight, akBottom]
         Color = clWhite
         TabOrder = 0
@@ -14595,7 +14594,7 @@ object Form1: TForm1
         Left = 21
         Top = 8
         Width = 182
-        Height = 235
+        Height = 448
         Anchors = [akLeft, akTop, akRight, akBottom]
         ItemHeight = 13
         ParentShowHint = False
