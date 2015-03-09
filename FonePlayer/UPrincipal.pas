@@ -168,6 +168,9 @@ begin
         status := false;
         Timer1.Enabled := true;
         MediaPlayer1.Play;
+        
+        ListBox1.Selected[IndPlayList] := true;
+
       end;
       status := false;
     end;
@@ -536,7 +539,10 @@ end;
 
 procedure TForm1.btnStopClick(Sender: TObject);
 begin
-  MediaPlayer1.Stop;  
+  MediaPlayer1.Stop;
+  MediaPlayer1.Close;
+  btnTocar.Caption := 'Tocar';
+  chkRA.Visible := false;  
 end;
 
 procedure TForm1.Panel3MouseUp(Sender: TObject; Button: TMouseButton;
