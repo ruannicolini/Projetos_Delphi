@@ -193,6 +193,7 @@ begin
             end;
             if(chkRA.Checked = true) then
             begin
+              Randomize;
               IndPlayList := Random(ListBox1.Items.Count -1);
             end;
         end
