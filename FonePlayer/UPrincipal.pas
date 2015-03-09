@@ -30,7 +30,6 @@ uses
     Image3: TImage;
     MediaPlayer1: TMediaPlayer;
     OpenDialog1: TOpenDialog;
-    MediaPlayer2: TMediaPlayer;
     Timer1: TTimer;
     ImageList1: TImageList;
     Image4: TImage;
@@ -50,6 +49,7 @@ uses
     chkRA: TCheckBox;
     btnPause: TSpeedButton;
     Panel1: TPanel;
+    Image1: TImage;
     procedure Panel4DblClick(Sender: TObject);
     procedure Panel10DblClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -81,6 +81,9 @@ uses
     procedure Panel7MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure ListBox1DblClick(Sender: TObject);
+    procedure Panel10MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Image1DblClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -104,7 +107,7 @@ procedure TForm1.Panel4DblClick(Sender: TObject);
 begin
   btnTocar.Caption := 'Tocar';
   MediaPlayer1.Close;
-  MediaPlayer2.Close;
+  //MediaPlayer2.Close;
   if OpenDialog1.Execute then
     begin
       MediaPlayer1.FileName := OpenDialog1.FileName;
@@ -122,6 +125,7 @@ begin
 end;
 procedure TForm1.Panel10DblClick(Sender: TObject);
 begin
+{
   MediaPlayer1.Close;
   MediaPlayer2.Close;
   if OpenDialog1.Execute then
@@ -129,11 +133,11 @@ begin
       MediaPlayer2.Display := Panel10;
       MediaPlayer2.DisplayRect := Panel10.ClientRect;
       MediaPlayer2.FileName := OpenDialog1.FileName;
-      
+
       MediaPlayer2.Open;
       Timer1.Enabled := true;
     end
-
+ }
 end;
 
 procedure TForm1.Timer1Timer(Sender: TObject);
@@ -201,7 +205,7 @@ end;
 
 procedure TForm1.FormResize(Sender: TObject);
 begin
-  MediaPlayer2.DisplayRect := Panel10.ClientRect;
+  //MediaPlayer2.DisplayRect := Panel10.ClientRect;
 end;
 
 procedure TForm1.FormShow(Sender: TObject);
@@ -252,7 +256,43 @@ begin
 end;
 
 procedure TForm1.btnTocarClick(Sender: TObject);
+var
+  WSidesOfScreenH, WSidesOfScreenV: Integer;
 begin
+{
+  MediaPlayer2.Display := Panel5;
+  MediaPlayer2.FileName := (extractFilepath(application.exename) + 'tp.mp4');
+  MediaPlayer2.DisplayRect := Panel5.ClientRect;
+  MediaPlayer2.Open;
+  MediaPlayer2.Play;
+  Timer1.Enabled := true;
+  }
+  {
+  try
+    // Altera o tamanho do panel com o mesmo tamano do vídeo:
+    //Self.Panel4.Width := MediaPlayer2.DisplayRect.Width;
+    //Self.Panel4.Height := MediaPlayer2.DisplayRect.Height;
+
+    // Centraliza o panel:
+    // Laterais do vídeo (altura da tela - altura do vídeo).
+    WSidesOfScreenV := Screen.Height - Self.Height;
+    Self.Panel4.Top := WSidesOfScreenV div 2;
+    // Laterais do vídeo (largura da tela - largura do vídeo).
+    WSidesOfScreenH := Screen.Width - Self.Panel4.Width;
+    Self.Panel4.Left := WSidesOfScreenH div 2;
+  except
+    on E: Exception do
+      ShowMessage('Ocorreu um erro ao redimensionar o vídeo na tela.' + #13 + E.Message);
+  end;
+end;
+
+  }
+
+
+  { Abrir proteção de tela
+  SendMessage(Application.Handle, WM_SYSCOMMAND, SC_SCREENSAVE, 0); }
+
+
   if (btnTocar.Caption = 'Parar Play List') then
   begin
     btnTocar.Caption := 'Tocar';
@@ -265,7 +305,7 @@ begin
     Timer1.Enabled := true;
     chkRA.Visible := true;
     chkRA.Checked:= false;
-  end
+  end;
 
 end;
 
@@ -540,6 +580,33 @@ begin
     chkRA.Visible := true;
     chkRA.Checked:= false;
   end;
+end;
+
+procedure TForm1.Panel10MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  panel3.Visible := true;
+end;
+
+procedure TForm1.Image1DblClick(Sender: TObject);
+begin
+  btnTocar.Caption := 'Tocar';
+  MediaPlayer1.Close;
+  
+  if OpenDialog1.Execute then
+    begin
+      MediaPlayer1.FileName := OpenDialog1.FileName;
+
+      MediaPlayer1.Open;
+      StatusBar1.Panels.Items[0].Text := 'AGORA:   ' + ExtractFileName(MediaPlayer1.FileName);
+      ProgressBar1.Min := 0;
+
+      ProgressBar1.Max := MediaPlayer1.Length;
+      ProgressBar1.Position := MediaPlayer1.Position;
+      Timer1.Enabled := true;
+    end
+
+
 end;
 
 end.
