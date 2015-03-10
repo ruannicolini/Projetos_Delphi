@@ -1,0 +1,273 @@
+unit uCalculadora;
+
+interface
+
+uses
+  SysUtils, WinTypes, WinProcs, Messages, Classes,
+  Forms, Buttons, Controls, StdCtrls, ExtCtrls, AppEvnts;
+
+type
+  TCalcStatus = (CS_FIRST, CS_VALID, CS_ERROR);
+
+type
+  TfrmCalculadora = class(TForm)
+    MainPanel: TPanel;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    Button6: TButton;
+    Button7: TButton;
+    Button8: TButton;
+    Button9: TButton;
+    Button0: TButton;
+    DisplayPanel: TPanel;
+    ButtonComma: TButton;
+    Panel3: TPanel;
+    resultLabel: TLabel;
+    ButtonDiv: TButton;
+    ButtonMult: TButton;
+    ButtonSub: TButton;
+    ButtonAdd: TButton;
+    ButtonSign: TButton;
+    ButtonC: TButton;
+    ButtonEq: TButton;
+    Button10: TButton;
+    ApplicationEvents1: TApplicationEvents;
+    procedure CalcButtonClick(Sender: TObject);
+    procedure OkBtnClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+    procedure Button10Click(Sender: TObject);
+
+
+  private
+    { Private-Deklarationen }
+    FResult : Double;
+    FStatus : TCalcStatus;
+    operand : Double;
+    operator : Char;
+
+    procedure SetCalcStatus(stat : TCalcStatus);
+    function GetCalcStatus : TCalcStatus;
+    procedure SetResult(r : Double);
+    function GetResult : Double;
+    procedure SetDisplayText(s : String);
+    function GetDisplayText : String;
+    property Status : TCalcStatus read GetCalcStatus write SetCalcStatus;
+    property DisplayText : String read GetDisplayText write SetDisplayText;
+    function ShowfrmCalculadora(var number : Double) : Boolean;
+
+  public
+    { Public-Deklarationen }
+    property CalcResult : Double read GetResult write SetResult;
+
+    procedure Clear;
+  end;
+
+var
+  frmCalculadora: TfrmCalculadora;
+
+
+
+implementation
+
+{$R *.DFM}
+
+function TfrmCalculadora.ShowfrmCalculadora(var number : Double) : Boolean;
+begin
+  frmCalculadora := TfrmCalculadora.Create(application);
+  try
+    frmCalculadora.CalcResult := number;
+    if (frmCalculadora.ShowModal = MROK) then
+      number := frmCalculadora.CalcResult;
+  finally
+    frmCalculadora.Free;
+  end;
+end;
+
+
+procedure TfrmCalculadora.SetCalcStatus(stat : TCalcStatus);
+begin
+  FStatus := stat;
+end;
+
+
+function TfrmCalculadora.GetCalcStatus : TCalcStatus;
+begin
+  result := FStatus;
+end;
+
+
+procedure TfrmCalculadora.SetResult(r : Double);
+begin
+  FResult := r;
+  DisplayText := FloatToStrF(FResult, ffFixed, 10,2);  { 2 dec. places }
+end;
+
+
+function TfrmCalculadora.GetResult : Double;
+begin
+  result := StrToFloat(DisplayText);
+end;
+
+
+procedure TfrmCalculadora.SetDisplayText(s : String);
+const
+  MAX_LEN = 12;
+begin
+  if (Length(s) <= MAX_LEN) then
+    resultLabel.Caption := s
+  else
+    MessageBeep(MB_ICONSTOP);
+end;
+
+
+function TfrmCalculadora.GetDisplayText : String;
+begin
+  result := resultLabel.Caption;
+end;
+
+
+procedure TfrmCalculadora.FormCreate(Sender: TObject);
+begin
+  Clear;
+end;
+
+
+procedure TfrmCalculadora.Clear;
+begin
+  Status := CS_FIRST;
+  DisplayText := '0';
+  operand := 0;
+  operator := #0;
+end;
+
+
+procedure TfrmCalculadora.CalcButtonClick(Sender: TObject);
+var
+  k : Char;
+begin
+  if (Sender is TButton) then begin
+    ButtonEq.SetFocus;  { default button }
+    k := Char(TButton(Sender).Tag);
+    FormKeyPress(Sender, k);
+  end;
+end;
+
+procedure TfrmCalculadora.OkBtnClick(Sender: TObject);
+//var
+//  k : Char;
+begin
+//  k := '=';
+//  FormKeyPress(self, k);  { simulate "=" to get result }
+end;
+
+
+procedure TfrmCalculadora.FormKeyPress(Sender: TObject; var Key: Char);
+const
+  KEY_SIGN = '#';
+  KEY_CLEAR = 'C';
+  KEY_DECIMAL = '.';
+
+  ERR_TXT = 'Error';
+var
+  k : Char;
+begin
+  k := UpCase(key);
+
+  if (k = decimalSeparator) then
+    k := KEY_DECIMAL;
+
+  if (Status <> CS_ERROR) or (k = KEY_CLEAR) then
+  case k of
+    '0'..'9': begin
+      if (Status = CS_FIRST) or (DisplayText = '0') then
+        DisplayText := '';
+      Status := CS_VALID;
+      DisplayText := DisplayText + k;
+    end;
+
+    #8 : begin
+      if (Length(DisplayText) > 0) then begin
+        DisplayText := Copy(DisplayText, 1, Length(DisplayText)-1);
+        if (Length(DisplayText) = 0) then
+          DisplayText := '0';
+        Status := CS_VALID;
+      end;
+    end;
+
+    KEY_DECIMAL: begin
+      if (Pos(decimalSeparator, DisplayText) = 0) then
+        DisplayText := DisplayText + decimalSeparator;
+      Status := CS_VALID;
+    end;
+
+    '+', '-', '/', '*', '=' : begin
+      case operator of
+        '+': begin
+          CalcResult := CalcResult + operand;
+        end;
+
+        '-': begin
+          CalcResult := CalcResult - operand;
+        end;
+
+        '*': begin
+          CalcResult := CalcResult * operand;
+        end;
+
+        '/': begin
+          if (CalcResult = 0) then
+            Status := CS_ERROR
+          else
+            CalcResult :=  operand / CalcResult;
+        end;
+
+      end;
+
+      if (Status <> CS_ERROR) then begin
+        Status := CS_FIRST;
+        operand := CalcResult;
+        operator := k;
+      end;
+    end;
+
+    KEY_SIGN: begin
+      CalcResult := -CalcResult;
+    end;
+
+    KEY_CLEAR: begin
+      Clear;
+    end;
+
+  end;
+
+  if (Status = CS_ERROR) then
+    DisplayText := ERR_TXT;
+
+  If (Key = chr(27)) then
+    Close;
+end;
+
+
+procedure TfrmCalculadora.BitBtn1Click(Sender: TObject);
+begin
+     Close;
+end;
+
+procedure TfrmCalculadora.FormActivate(Sender: TObject);
+begin
+     ButtonEq.SetFocus;
+end;
+
+procedure TfrmCalculadora.Button10Click(Sender: TObject);
+begin
+   Close;
+end;
+
+end.
+
