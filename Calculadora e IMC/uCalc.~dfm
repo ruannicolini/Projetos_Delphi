@@ -38,7 +38,7 @@ object Form3: TForm3
       Color = clWhite
       ParentBackground = False
       TabOrder = 0
-      object Edit1: TEdit
+      object EditVisor: TEdit
         Left = 32
         Top = 8
         Width = 109

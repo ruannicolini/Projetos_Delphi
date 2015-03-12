@@ -11,7 +11,7 @@ type
     PanelBtn: TPanel;
     Panel2: TPanel;
     Panel3: TPanel;
-    Edit1: TEdit;
+    EditVisor: TEdit;
     PanelOp: TPanel;
     procedure click(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -23,6 +23,9 @@ type
 
 var
   Form3: TForm3;
+  num1, num2: Integer;
+  operacao: String;
+  controle: Boolean;
 
 implementation
 
@@ -30,7 +33,22 @@ implementation
 
 procedure TForm3.click(Sender: TObject);
 begin
-   if TButton(sender).Caption = '1' then showmessage('1 foi clicado');
+   if TButton(sender).Caption = '0' then EditVisor.Text := EditVisor.Text + ('0');
+   if TButton(sender).Caption = '1' then EditVisor.Text := EditVisor.Text + ('1');
+   if TButton(sender).Caption = '2' then EditVisor.Text := EditVisor.Text + ('2');
+   if TButton(sender).Caption = '3' then EditVisor.Text := EditVisor.Text + ('3');
+   if TButton(sender).Caption = '4' then EditVisor.Text := EditVisor.Text + ('4');
+   if TButton(sender).Caption = '5' then EditVisor.Text := EditVisor.Text + ('5');
+   if TButton(sender).Caption = '6' then EditVisor.Text := EditVisor.Text + ('6');
+   if TButton(sender).Caption = '7' then EditVisor.Text := EditVisor.Text + ('7');
+   if TButton(sender).Caption = '8' then EditVisor.Text := EditVisor.Text + ('8');
+   if TButton(sender).Caption = '9' then EditVisor.Text := EditVisor.Text + ('9');
+   if TButton(sender).Caption = 'CE' then showmessage('CE');
+   if TButton(sender).Caption = '=' then showmessage('=');
+   if TButton(sender).Caption = '+' then showmessage('+');
+   if TButton(sender).Caption = '-' then showmessage('-');
+   if TButton(sender).Caption = '*' then showmessage('*');
+   if TButton(sender).Caption = '/' then showmessage('/');
 end;
 
 procedure TForm3.FormShow(Sender: TObject);
@@ -70,9 +88,10 @@ begin
         else
           begin
             b.Caption := IntToStr(i+aux);
+            //b.Name := IntToStr(i+aux);
           end;
 
-        //b.Name := 'btn'+ IntToStr(i);
+        
         b.OnClick := click;
 
         b.Height := 23;
