@@ -62,8 +62,27 @@ procedure TForm1.btnCalcClick(Sender: TObject);
 begin
   try
     Application.CreateForm(TForm3, Form3);
+    Writeln(log,
+            FormatDateTime('hh-',now) +//hora
+            FormatDateTime('nn-',now) + //minuto
+            FormatDateTime('ss',now)//segundo
+            + ' '+ strNome + ' Iniciou Calculadora');
+    MemoLog.Lines.Add(FormatDateTime('hh-',now) +//hora
+            FormatDateTime('nn-',now) + //minuto
+            FormatDateTime('ss',now)//segundo
+            + ' '+ strNome + ' Iniciou Calculadora');
     Form3.showmodal;
+
   finally
+    MemoLog.Lines.Add(FormatDateTime('hh-',now) +//hora
+            FormatDateTime('nn-',now) + //minuto
+            FormatDateTime('ss',now)//segundo
+            + ' '+ strNome + ' Finalizou Calculadora');
+    Writeln(log,
+            FormatDateTime('hh-',now) +//hora
+            FormatDateTime('nn-',now) + //minuto
+            FormatDateTime('ss',now)//segundo
+            + ' '+ strNome + ' Finalizou Calculadora');
     Form3.free;
   end;
 
@@ -83,8 +102,27 @@ procedure TForm1.btnImcClick(Sender: TObject);
 begin
   try
     Application.CreateForm(TForm2, Form2);
+
+    MemoLog.Lines.Add(FormatDateTime('hh-',now) +//hora
+            FormatDateTime('nn-',now) + //minuto
+            FormatDateTime('ss',now)//segundo
+            + ' '+ strNome + ' Iniciou Calculo IMC');
+    Writeln(log,
+            FormatDateTime('hh-',now) +//hora
+            FormatDateTime('nn-',now) + //minuto
+            FormatDateTime('ss',now)//segundo
+            + ' '+ strNome + ' Iniciou Calculo IMC');
     Form2.showmodal;
   finally
+    MemoLog.Lines.Add(FormatDateTime('hh-',now) +//hora
+            FormatDateTime('nn-',now) + //minuto
+            FormatDateTime('ss',now)//segundo
+            + ' '+ strNome + ' Finalizou Calculo IMC');
+    Writeln(log,
+            FormatDateTime('hh-',now) +//hora
+            FormatDateTime('nn-',now) + //minuto
+            FormatDateTime('ss',now)//segundo
+            + ' '+ strNome + ' Finalizou Calculo IMC');
     Form2.free;
   end;
 

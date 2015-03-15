@@ -2,7 +2,7 @@ object Form1: TForm1
   Left = 234
   Top = 106
   Width = 386
-  Height = 257
+  Height = 290
   Color = clScrollBar
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -34,7 +34,7 @@ object Form1: TForm1
     Left = 8
     Top = 193
     Width = 361
-    Height = 24
+    Height = 56
     TabOrder = 0
   end
   object XPManifest1: TXPManifest
