@@ -9,7 +9,6 @@ uses
 type
   TForm1 = class(TForm)
     btnImc: TSpeedButton;
-    btnLog: TSpeedButton;
     btnCalc: TSpeedButton;
     XPManifest1: TXPManifest;
     MemoLog: TMemo;
@@ -18,6 +17,7 @@ type
     procedure btnCalcClick(Sender: TObject);
     procedure ApplicationEvents1Exception(Sender: TObject; E: Exception);
     procedure btnImcClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -27,6 +27,7 @@ type
 var
   Form1: TForm1;
   strNome: String;
+  log: TextFile;
 
 implementation
 
@@ -34,8 +35,27 @@ Uses  uImc, uCalc;
 {$R *.dfm}
 
 procedure TForm1.FormShow(Sender: TObject);
+var nomeArq, caminho:string;
+result :Boolean;
 begin
   strNome := InputBox('Inforações do Usuário', 'Nome',' ');
+
+  nomeArq := formatdatetime('dd',date()) +   //Dia
+             formatdatetime('mm', date()) +  //mes
+             formatdatetime('yy',date()) +   //Ano
+             strNome +
+             FormatDateTime('hh',now) +//hora
+             FormatDateTime('nn',now) + //minuto
+             FormatDateTime('ss',now);//segundo
+
+
+  AssignFile(log, ExtractFilePath(Application.Exename) + 'log\' + nomeArq +'.txt');
+
+  Rewrite(log); //abre o arquivo para escrita
+
+  MemoLog.Lines.Add( DateTimeToStr(Now)+ ' ' + strNome);
+  Writeln(log, 'Inicio: ' + DateTimeToStr(Now)+ ' ' + strNome);
+
 end;
 
 procedure TForm1.btnCalcClick(Sender: TObject);
@@ -68,6 +88,13 @@ begin
     Form2.free;
   end;
 
+end;
+
+procedure TForm1.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  MemoLog.Lines.Add('FIM: ' + DateTimeToStr(Now));
+  Writeln(log, 'FIM: ' + DateTimeToStr(Now));
+  Closefile(log); //fecha o arquivo de log;
 end;
 
 end.

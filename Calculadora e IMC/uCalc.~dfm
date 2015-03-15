@@ -1,10 +1,10 @@
 object Form3: TForm3
-  Left = 976
+  Left = 1138
   Top = 129
   BorderStyle = bsSingle
   Caption = 'Calculadora'
-  ClientHeight = 235
-  ClientWidth = 169
+  ClientHeight = 202
+  ClientWidth = 195
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -25,7 +25,7 @@ object Form3: TForm3
   object Panel2: TPanel
     Left = -1
     Top = -1
-    Width = 160
+    Width = 194
     Height = 49
     Color = clWindowText
     ParentBackground = False
@@ -33,18 +33,23 @@ object Form3: TForm3
     object Panel3: TPanel
       Left = 5
       Top = 5
-      Width = 149
+      Width = 185
       Height = 40
       Color = clWhite
       ParentBackground = False
       TabOrder = 0
-      object EditVisor: TEdit
-        Left = 32
-        Top = 8
-        Width = 109
-        Height = 21
-        BorderStyle = bsNone
-        TabOrder = 0
+      object visor: TLabel
+        Left = 165
+        Top = 10
+        Width = 1
+        Height = 20
+        Alignment = taRightJustify
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
       end
     end
   end

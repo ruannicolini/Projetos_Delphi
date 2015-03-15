@@ -11,44 +11,123 @@ type
     PanelBtn: TPanel;
     Panel2: TPanel;
     Panel3: TPanel;
-    EditVisor: TEdit;
     PanelOp: TPanel;
+    visor: TLabel;
     procedure click(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
+    function addNum(num:Integer): Integer;
   end;
 
 var
   Form3: TForm3;
-  num1, num2: Integer;
-  operacao: String;
-  controle: Boolean;
+
+  resultado : real;
+  num1 : real;
+  num2 : real;
+  sinal : Integer;
 
 implementation
 
 {$R *.dfm}
 
+function TForm3.addNum(num:Integer): Integer;
+  begin
+    visor.Caption := visor.Caption + IntToStr(num);
+  end;
+
 procedure TForm3.click(Sender: TObject);
 begin
-   if TButton(sender).Caption = '0' then EditVisor.Text := EditVisor.Text + ('0');
-   if TButton(sender).Caption = '1' then EditVisor.Text := EditVisor.Text + ('1');
-   if TButton(sender).Caption = '2' then EditVisor.Text := EditVisor.Text + ('2');
-   if TButton(sender).Caption = '3' then EditVisor.Text := EditVisor.Text + ('3');
-   if TButton(sender).Caption = '4' then EditVisor.Text := EditVisor.Text + ('4');
-   if TButton(sender).Caption = '5' then EditVisor.Text := EditVisor.Text + ('5');
-   if TButton(sender).Caption = '6' then EditVisor.Text := EditVisor.Text + ('6');
-   if TButton(sender).Caption = '7' then EditVisor.Text := EditVisor.Text + ('7');
-   if TButton(sender).Caption = '8' then EditVisor.Text := EditVisor.Text + ('8');
-   if TButton(sender).Caption = '9' then EditVisor.Text := EditVisor.Text + ('9');
-   if TButton(sender).Caption = 'CE' then showmessage('CE');
-   if TButton(sender).Caption = '=' then showmessage('=');
-   if TButton(sender).Caption = '+' then showmessage('+');
-   if TButton(sender).Caption = '-' then showmessage('-');
-   if TButton(sender).Caption = '*' then showmessage('*');
-   if TButton(sender).Caption = '/' then showmessage('/');
+   if TButton(sender).Caption = '0' then addNum(0);
+   if TButton(sender).Caption = '1' then addNum(1);
+   if TButton(sender).Caption = '2' then addNum(2);
+   if TButton(sender).Caption = '3' then addNum(3);
+   if TButton(sender).Caption = '4' then addNum(4);
+   if TButton(sender).Caption = '5' then addNum(5);
+   if TButton(sender).Caption = '6' then addNum(6);
+   if TButton(sender).Caption = '7' then addNum(7);
+   if TButton(sender).Caption = '8' then addNum(8);
+   if TButton(sender).Caption = '9' then addNum(9);
+
+   if TButton(sender).Caption = 'CE' then
+   begin
+    visor.Caption := '';
+    num1 := 0;
+    num2 := 0;
+    resultado := 0.0;
+    sinal := 0;
+   end;
+
+   if TButton(sender).Caption = '=' then
+   begin
+    num2 := StrToInt(visor.Caption);
+      case sinal of
+        1:  resultado := num1 + num2;
+        2:  resultado := num1 - num2;
+        3:  resultado := num1 * num2;
+        4:  resultado := num1 / num2;
+      end;
+    visor.Caption := FloatToStr(resultado);
+  end;
+
+   if TButton(sender).Caption = '+' then
+   begin
+      num1 := num1 + StrToInt(visor.Caption);
+      visor.Caption := FloatToStr(num1);
+
+      sinal := 1;
+      if (Trim(visor.Caption) = '') then
+        begin
+          ShowMessage('Digite Algo no campo');
+        end
+      else begin
+        num1 := StrToInt(visor.Caption);
+        visor.Caption := '';
+      end;
+   end;
+
+   if TButton(sender).Caption = '-' then
+   begin
+      sinal := 2;
+      if (Trim(visor.Caption) = '') then
+        begin
+          ShowMessage('Digite Algo no campo');
+        end
+      else begin
+        num1 := StrToInt(visor.Caption);
+        visor.Caption := '';
+      end;
+   end;
+
+   if TButton(sender).Caption = '*' then
+   begin
+      sinal := 3;
+      if (Trim(visor.Caption) = '') then
+        begin
+          ShowMessage('Digite Algo no campo');
+        end
+      else begin
+        num1 := StrToInt(visor.Caption);
+        visor.Caption := '';
+      end;
+   end;
+
+   if TButton(sender).Caption = '/' then
+   begin
+    sinal := 4;
+    if (Trim(visor.Caption) = '') then
+    begin
+      ShowMessage('Digite Algo no campo');
+    end
+    else begin
+    num1 := StrToInt(visor.Caption);
+    visor.Caption := '';
+    end;
+  end;
+  
 end;
 
 procedure TForm3.FormShow(Sender: TObject);
